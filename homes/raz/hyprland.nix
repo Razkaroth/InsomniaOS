@@ -46,7 +46,29 @@ in
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 1"
       ];
-      monitor = [ ",preferred,auto,1" ];
+      monitor = [''
+# Monitors
+      monitor=DP-2,preferred,1080x600,1
+      workspace=1, monitor:DP-2, default:true, persistent:true
+      workspace=2, monitor:DP-2, persistent:true 
+      workspace=3, monitor:DP-2, persistent:true
+
+      monitor=eDP-1,preferred,3000x600,1
+      workspace=7, monitor:eDP-1, default:true, persistent:true
+      workspace=8, monitor:eDP-1, persistent:true
+      workspace=9, monitor:eDP-1, persistent:true
+      workspace=10, monitor:eDP-1, persistent:true
+
+      monitor=HDMI-A-1,preferred,0x0,1,transform,3
+      workspace=4, monitor:HDMI-A-1, default:true
+      workspace=5, monitor:HDMI-A-1, persistent:true
+      workspace=6, monitor:HDMI-A-1, persistent:true
+
+      # Mirror
+      #monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
+      #monitor=,preferred,auto,1,mirror,eDP-1
+      ''
+      ];
       "exec-once" = [
         "ags"
         "swww kill; swww init"
@@ -363,7 +385,7 @@ in
         "noanim, sideleft"
       ];
       source = [
-        "./colors.conf"
+        # "./colors.conf"
       ];
     };
   };
