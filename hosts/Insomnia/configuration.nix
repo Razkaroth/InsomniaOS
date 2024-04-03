@@ -114,6 +114,7 @@
       wget
       nixpkgs-fmt
       nixfmt
+      neovim
     ];
   };
 
@@ -139,7 +140,7 @@
 
   # network
   networking = {
-    hostName = "CirnOS";
+    hostName = "Insomnia";
     networkmanager.enable = true;
   };
 

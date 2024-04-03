@@ -1,6 +1,6 @@
 let
-  username = "end";
-  homeDirectory = "/home/end";
+  username = "raz";
+  homeDirectory = "/home/raz";
 in
 { pkgs, impurity, ... }: {
   imports = [

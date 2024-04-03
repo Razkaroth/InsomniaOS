@@ -1,4 +1,5 @@
-# CirnOS
+# Insomnia OS
+- Based on ends-4's NixOS config
 - If you want my dotfiles offered separately, they're here: https://github.com/end-4/dots-hyprland
 - It's impure but it works
 - I am very uncertain about this NixOS config due to my lack of experience. I hopped to CachyOS and this likely won't be updated

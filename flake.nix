@@ -1,5 +1,5 @@
 {
-  description = "end_4's NixOS flake";
+  description = "raz's NixOS flake";
 
   outputs = { self, impurity, ... }: {
     # editing flake.nix triggers certain utilities such as direnv

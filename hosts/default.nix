@@ -16,7 +16,7 @@ let
   impurity = inputs.impurity;
 in
 {
-  "CirnOS" = nixpkgs.lib.nixosSystem {
+  "Insomnia" = nixpkgs.lib.nixosSystem {
     specialArgs = { inherit inputs; };
     modules =
       [
@@ -27,16 +27,16 @@ in
           impurity.enable = true;
         }
 
-        ./CirnOS # this imports your entire host configuration in one swoop
+        ./Insomnia # this imports your entire host configuration in one swoop
 
         # this part is basically the same as putting configuration in your
         # configuration.nix, but is done on the topmost level for your convenience
         {
-          networking.hostName = "CirnOS";
-          _module.args = { username = "end"; };
+          networking.hostName = "Insomnia";
+          _module.args = { username = "raz"; };
         }
       ]
       ++ homes; # imports the home-manager related configurations
   };
-  "CirnOS-impure" = self.nixosConfigurations."CirnOS".extendModules { modules = [{ impurity.enable = true; }]; };
+  "Insomnia-impure" = self.nixosConfigurations."Insomnia".extendModules { modules = [{ impurity.enable = true; }]; };
 }

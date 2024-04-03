@@ -14,12 +14,27 @@
       figma-linux
       kolourpaint
       github-desktop
+      google-chrome
       gnome.nautilus
       icon-library
       dconf-editor
       qt5.qtimageformats
       vlc
       yad
+      obsidian
+      obs-studio
+      docker
+      discord
+      spotify
+      spicetify-cli
+
+
+      # k8s
+      kubectl
+      lens
+      doctl
+      kubernetes-helm
+
 
       # tools
       bat
@@ -43,6 +58,7 @@
       showmethekey
       vscode
       ydotool
+      lazygit
 
       # theming tools
       gradience
