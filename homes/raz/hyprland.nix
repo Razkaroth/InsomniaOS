@@ -47,7 +47,6 @@ in
         "WLR_NO_HARDWARE_CURSORS, 1"
       ];
       monitor = [''
-# Monitors
       monitor=DP-2,preferred,1080x600,1
       workspace=1, monitor:DP-2, default:true, persistent:true
       workspace=2, monitor:DP-2, persistent:true 
@@ -108,7 +107,8 @@ in
       input = {
         # Keyboard: Add a layout and uncomment kb_options for Win+Space switching shortcut
         kb_layout = "us";
-        # kb_options = grp:win_space_toggle;
+        kb_variant = "intl";
+        kb_options = "grp:alt_shift_toggle, caps:swapescape";
         numlock_by_default = true;
         repeat_delay = 250;
         repeat_rate = 35;
@@ -385,7 +385,7 @@ in
         "noanim, sideleft"
       ];
       source = [
-        # "./colors.conf"
+         "./colors.conf"
       ];
     };
   };

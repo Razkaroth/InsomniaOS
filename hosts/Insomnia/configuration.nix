@@ -26,6 +26,11 @@
     ];
   };
 
+  
+  nixpkgs.config.permittedInsecurePackages = [
+                "electron-25.9.0"
+              ];
+ 
   # virtualisation
   # programs.virt-manager.enable = true;
   # virtualisation = {

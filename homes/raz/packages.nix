@@ -94,7 +94,7 @@
       typescript
       eslint
       # very important stuff
-      # uwuify
+      uwuify
     ];
   };
 }
