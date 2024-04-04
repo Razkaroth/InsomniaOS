@@ -47,19 +47,19 @@ in
         "WLR_NO_HARDWARE_CURSORS, 1"
       ];
       monitor = [''
-      monitor=DP-2,preferred,1080x600,1
+      DP-2,preferred,0x0,1 # Since the config starts with "monitor="
       workspace=1, monitor:DP-2, default:true, persistent:true
       workspace=2, monitor:DP-2, persistent:true 
       workspace=3, monitor:DP-2, persistent:true
 
-      monitor=eDP-1,preferred,3000x600,1
+      monitor=eDP-1,preferred,1920x0,1
       workspace=7, monitor:eDP-1, default:true, persistent:true
       workspace=8, monitor:eDP-1, persistent:true
       workspace=9, monitor:eDP-1, persistent:true
       workspace=10, monitor:eDP-1, persistent:true
 
-      monitor=HDMI-A-1,preferred,0x0,1,transform,3
-      workspace=4, monitor:HDMI-A-1, default:true
+      monitor=HDMI-A-1,preferred,-1080x-600,1,transform,3
+      workspace=4, monitor:HDMI-A-1, default:true, persistent:true
       workspace=5, monitor:HDMI-A-1, persistent:true
       workspace=6, monitor:HDMI-A-1, persistent:true
 
