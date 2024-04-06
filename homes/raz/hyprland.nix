@@ -336,10 +336,10 @@ in
         # ",XF86AudioLowerVolume, exec, ags run-js 'indicator.popup(1);'"
         ",XF86MonBrightnessUp, exec, ags run-js 'indicator.popup(1);'"
         ",XF86MonBrightnessDown, exec, ags run-js 'indicator.popup(1);'"
-        "Alt, I, exec, ydotool key 103:1 103:0 "
-        "Alt, K, exec, ydotool key 108:1 108:0"
-        "Alt, J, exec, ydotool key 105:1 105:0"
-        "Alt, L, exec, ydotool key 106:1 106:0"
+        # "Alt, I, exec, ydotool key 103:1 103:0 "
+        # "Alt, K, exec, ydotool key 108:1 108:0"
+        # "Alt, J, exec, ydotool key 105:1 105:0"
+        # "Alt, L, exec, ydotool key 106:1 106:0"
       ];
       bindr = [
         "Control+Super, R, exec, killall ags .ags-wrapped ydotool; ags &"

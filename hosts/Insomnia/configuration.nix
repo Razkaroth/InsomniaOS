@@ -87,6 +87,7 @@
   # dconf
   programs = {
     zsh.enable = true;
+    fish.enable = true;
     dconf.enable = true;
     steam = {
       enable = true;
@@ -110,8 +111,10 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
+      lshw
       curl
       zsh
+      fzf
       fish
       git
       gh
@@ -135,10 +138,10 @@
   '';
   # user
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     users.${username} = {
       isNormalUser = true;
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       extraGroups = [ "networkmanager" "wheel" "video" "input" "uinput" "libvirtd" ];
     };
   };
@@ -152,8 +155,15 @@
   # bluetooth
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
   };
+  systemd.services.bluetooth.serviceConfig.ExecStart = [
+  ""
+  "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
+  ];
+  services.blueman.enable = true;
+
+
 
   # Boot
   boot = {

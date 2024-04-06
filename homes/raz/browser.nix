@@ -1,8 +1,10 @@
 { inputs, pkgs, ... }: {
   home = {
     sessionVariables = {
-      BROWSER = "firefox";
+      BROWSER = "google-chrome-stable";
     };
+
+ 
 
     file."firefox-gnome-theme" = {
       target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
@@ -12,6 +14,18 @@
       libsForQt5.plasma-browser-integration
     ];
   };
+   xdg.desktopEntries.google-chrome-offloaded = {
+     name = "Google Chrome Offloaded";
+     exec = "nvidia-offload google-chrome-stable";
+     icon = "google-chrome-stable";
+     categories = [ "Network" "WebBrowser" ];
+    };
+
+    xdg.desktopEntries.brave = {
+      name="Brave";
+      exec = "nvidia-offload brave";
+      noDisplay = true;
+    };
 
   programs.firefox = {
     enable = true;

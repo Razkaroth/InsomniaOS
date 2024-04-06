@@ -8,7 +8,10 @@
 
       # gui
       blueberry
+      bottles
+      brave
       (mpv.override { scripts = [ mpvScripts.mpris ]; })
+      chromium
       d-spy
       dolphin
       figma-linux
@@ -27,7 +30,10 @@
       discord
       spotify
       spicetify-cli
+      signal-desktop
 
+      # Music
+      sunvox
 
       # k8s
       kubectl
@@ -59,6 +65,9 @@
       vscode
       ydotool
       lazygit
+      btop
+      nvidia-system-monitor-qt
+
 
       # theming tools
       gradience

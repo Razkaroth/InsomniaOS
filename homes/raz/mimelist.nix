@@ -4,6 +4,7 @@ let
   file-manager = "org.gnome.Nautilus.desktop";
   image-viewer = "org.gnome.Loupe.desktop";
   image-editor = "org.kde.kolourpaint";
+  video-player = "mpv.desktop";
   torrent = "transmission-gtk.desktop";
 in {
   xdg.mimeApps = rec {
@@ -45,6 +46,7 @@ in {
       "image/svg+xml-compressed" = image-viewer;
       "image/vnd.wap.wbmp" = image-viewer;
       "image/x-icns" = image-viewer;
+      "video/mp4" = video-player;
     };
   };
 }
