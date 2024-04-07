@@ -18,6 +18,19 @@ const switchToWorkspace = (arg) => Utils.execAsync(`swaymsg workspace ${arg}`).c
 const switchToRelativeWorkspace = (self, num) =>
     execAsync([`${App.configDir}/scripts/sway/swayToRelativeWs.sh`, `${num}`]).catch(print);
 
+const toKanji = {
+  "1" :"一",
+  "2" :"二",
+  "3" :"三",
+  "4" :"四",
+  "5" :"五",
+  "6" :"六",
+  "7" :"七",
+  "8" :"八",
+  "9" :"九",
+  "10":"十",
+}
+
 const WorkspaceContents = (count = 10) => {
     return DrawingArea({
         css: `transition: 90ms cubic-bezier(0.1, 1, 0, 1);`,

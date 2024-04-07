@@ -362,8 +362,20 @@ in
         "float,title:^(Open Folder)(.*)$"
         "float,title:^(Save As)(.*)$"
         "float,title:^(Library)(.*)$ "
+        "center,^(pavucontrol)"
+        "float, pavucontrol"
+        "float, nm-connection-editor|blueman-manager"
+        "float, zoom"
       ];
-      windowrulev2 = [ "tile,class:(wpsoffice)" ];
+      windowrulev2 = [ 
+        "tile,class:(wpsoffice)"
+        "workspace 7 silent, class:^(discord)$"
+        "workspace 9, class:^(com.obsproject.Studio)$"
+        "opacity 0.8 0.7, class:^(foot)$"
+        "opacity 0.8 0.7, class:^(kitty)$"
+        "opacity 0.9 0.7, class:^(firefox)$"
+        "opacity 0.9 0.8, class:^([Nn]eovide)$"
+      ];
       layerrule = [
         "xray 1, .*"
         "noanim, selection"
