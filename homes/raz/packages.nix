@@ -19,6 +19,7 @@
       github-desktop
       google-chrome
       gnome.nautilus
+      gwenview
       icon-library
       dconf-editor
       qt5.qtimageformats
