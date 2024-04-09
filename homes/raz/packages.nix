@@ -57,6 +57,8 @@
       libnotify
       killall
       zip
+      zoxide
+      tmux
       unzip
       glib
       foot
@@ -101,6 +103,8 @@
       cargo
       go
       gcc
+      gnumake
+      cmakeMinimal
       typescript
       eslint
       # very important stuff

@@ -123,6 +123,7 @@
       nixpkgs-fmt
       nixfmt
       neovim
+      ripgrep
     ];
   };
 
