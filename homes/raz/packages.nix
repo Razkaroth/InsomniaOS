@@ -98,6 +98,7 @@
 
       # langs
       nodejs
+      corepack
       gjs
       bun
       cargo
