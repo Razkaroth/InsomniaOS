@@ -37,6 +37,17 @@
   #   libvirtd.enable = true;
   # };
 
+ # docker 
+ virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
+
   services = {
     envfs.enable = true;
     greetd = {

@@ -24,14 +24,19 @@
       dconf-editor
       qt5.qtimageformats
       vlc
+      mongodb-compass
       yad
       obsidian
       obs-studio
       docker
-      discord
       spotify
       spicetify-cli
+
+      # Comms
+      discord
       signal-desktop
+      teams-for-linux
+
 
       # Music
       sunvox
@@ -110,6 +115,7 @@
       eslint
       # very important stuff
       uwuify
+      neofetch
     ];
   };
 }
