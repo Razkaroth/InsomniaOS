@@ -12,7 +12,6 @@
     "colors.conf".source = link ./.config/hypr/colors.conf;
     "swaylock".source = link ./.config/swaylock;
     "neofetch".source = link ./.config/neofetch;
-    "tmux".source = link ./.config/tmux;
   };
 }
 
