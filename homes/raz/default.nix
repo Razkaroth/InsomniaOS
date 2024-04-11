@@ -35,7 +35,7 @@ in
   xdg.userDirs = {
     createDirectories = true;
   };
-  xdg.mime.enable = true;
+  # xdg.mime.enable = true;
 
   gtk = {
     font = {
