@@ -1,23 +1,12 @@
 {pkgs, ...}:
-let
-modern-tmux-theme = mkTmuxPlugin {
-  pluginName = "modern-tmux-theme";
-  version = "unstable-2023-01-06";
-  src = fetchFromGitHub {
-    owner = "Millrocious";
-    repo = "modern-tmux-theme";
-    rev = "29dad92c8a2486e5b6f116e42883906c00a1f0a2";
-    sha256 = "sha256-ymmCI6VYvf94Ot7h2GAboTRBXPIREP+EB33+px5aaJk=";
-  };
-};
-in {
+{
   programs.tmux = {
     enable = true;
 
     baseIndex = 1;
     prefix = "M-s";
 
-    plugins = with pkgs.tmuxPlugins [
+    plugins = with pkgs.tmuxPlugins; [
       sensible
         vim-tmux-navigator
         yank
@@ -66,6 +55,6 @@ in {
       # Window movement
       bind -n M-H previous-window
       bind -n M-L next-window
-    ''
+    '';
   };
 }

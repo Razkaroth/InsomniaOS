@@ -1,5 +1,5 @@
 {
   imports = [
-  ./tmux.nix;
+  ./tmux.nix
   ];
 }
