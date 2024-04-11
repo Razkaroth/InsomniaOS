@@ -158,8 +158,8 @@ export default () => {
                         ]
                     }),
                     setup: (self) => self.hook(Mpris, label => {
-                        const mpris = Mpris.getPlayer('');
-                        self.revealChild = (!mpris);
+                        // const mpris = Mpris.getPlayer('');
+                        self.revealChild = (true);
                     }),
                 })
             ],
