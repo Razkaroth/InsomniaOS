@@ -1,4 +1,4 @@
-{ pkgs, spicetify-nix, ... }:
+{ pkgs,  ... }:
 {
   imports = [
     ./programs
@@ -31,7 +31,7 @@
       obsidian
       obs-studio
       docker
-      spotify
+      # spotify it is already handled by spicetify-nix
       typora
 
       # Comms

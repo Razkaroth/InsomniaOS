@@ -2,7 +2,7 @@ let
   username = "raz";
   homeDirectory = "/home/raz";
 in
-{ pkgs, impurity, spicetify-nix ,... }: {
+{ pkgs, impurity, ... }: {
   imports = [
     # Cachix
     # ./cachix.nix

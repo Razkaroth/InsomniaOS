@@ -1,7 +1,7 @@
 {
   description = "raz's NixOS flake";
 
-  outputs = { self, spicetify-nix, impurity, ... }: {
+  outputs = { self,  impurity, ... }: {
     # editing flake.nix triggers certain utilities such as direnv
     # to reload - editing host configurations do not require a direnv
     # reload, so lets move hosts out of the way
