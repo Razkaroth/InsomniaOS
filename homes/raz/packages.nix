@@ -33,6 +33,7 @@
       docker
       # spotify it is already handled by spicetify-nix
       typora
+      libreoffice
 
       # Comms
       discord

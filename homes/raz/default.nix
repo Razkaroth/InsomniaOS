@@ -26,6 +26,8 @@ in
     sessionVariables = {
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
+      # Other variables
+      # NIX_BUILD_SHELL = "fish";
     };
     sessionPath = [
       "$HOME/.local/bin"

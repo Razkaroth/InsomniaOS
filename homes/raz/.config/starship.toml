@@ -10,7 +10,7 @@ add_newline = false
 # $character
 # """
 format = """
-$cmd_duration$directory $git_branch
+$nix_shell$cmd_duration$directory $git_branch
 $character
 """
 
@@ -99,3 +99,11 @@ format = '[](bold fg:blue)[$path ]($style)[](bold fg:blue)'
 [cmd_duration]
 min_time = 0
 format = '[](bold fg:yellow)[ $duration](bold bg:yellow fg:black)[](bold fg:yellow) •• '
+
+
+[nix_shell]
+# disabled = true
+impure_msg = '[impure shell](bold red)'
+pure_msg = '[pure shell](bold green)'
+unknown_msg = '[unknown shell](bold yellow)'
+format = '[$name](bold blue)'
