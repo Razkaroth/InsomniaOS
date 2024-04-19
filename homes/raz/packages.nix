@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, spicetify-nix, ... }:
 {
   imports = [
     ./programs
@@ -32,7 +32,7 @@
       obs-studio
       docker
       spotify
-      spicetify-cli
+      typora
 
       # Comms
       discord
