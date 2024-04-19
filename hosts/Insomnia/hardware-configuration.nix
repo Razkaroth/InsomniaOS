@@ -22,7 +22,13 @@
     { device = "/dev/disk/by-uuid/9187-9DC1";
       fsType = "vfat";
     };
-
+  #
+  # fileSystems."/mnt/Windows" =
+  #   { device = "/dev/nvme1n1p2";
+  #     fsType = "ntfs-3g";
+  #     options = [ "rw" "uid=1000" "gid=100" "umask=022" "dmask=007"];
+  #   };
+  #
   swapDevices =
     [ { device = "/dev/disk/by-uuid/0d6d4e5d-89a2-47e5-97e0-7cf756c053b0"; }
     ];
