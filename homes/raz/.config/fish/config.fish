@@ -10,6 +10,8 @@ end
 
 alias nrb='IMPURITY_PATH=$(pwd) sudo --preserve-env=IMPURITY_PATH nixos-rebuild switch --flake . --impure'
 
+alias n='nvim .'
+
 starship init fish | source
 if test -f ~/.cache/ags/user/colorschemes/sequences
     cat ~/.cache/ags/user/colorschemes/sequences

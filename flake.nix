@@ -1,7 +1,7 @@
 {
   description = "raz's NixOS flake";
 
-  outputs = { self, impurity, ... }: {
+  outputs = { self, spicetify-nix, impurity, ... }: {
     # editing flake.nix triggers certain utilities such as direnv
     # to reload - editing host configurations do not require a direnv
     # reload, so lets move hosts out of the way
@@ -21,7 +21,7 @@
       url = "github:hyprwm/hyprland-plugins";
       # inputs.nixpkgs.follows = "hyprland";
     };
-
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
     ags.url = "github:Aylur/ags";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

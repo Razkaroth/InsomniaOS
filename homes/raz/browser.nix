@@ -3,9 +3,6 @@
     sessionVariables = {
       BROWSER = "google-chrome-stable";
     };
-
- 
-
     file."firefox-gnome-theme" = {
       target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
       source = inputs.firefox-gnome-theme;
