@@ -51,6 +51,7 @@ in
       workspace=1, monitor:DP-2, default:true, persistent:true
       workspace=2, monitor:DP-2, persistent:true 
       workspace=3, monitor:DP-2, persistent:true
+      workspace=4, monitor:DP-2, persistent:true
 
       monitor=eDP-1,preferred,1920x0,1
       workspace=7, monitor:eDP-1, default:true, persistent:true
@@ -59,8 +60,7 @@ in
       workspace=10, monitor:eDP-1, persistent:true
 
       monitor=HDMI-A-1,preferred,-1080x-600,1,transform,3
-      workspace=4, monitor:HDMI-A-1, default:true, persistent:true
-      workspace=5, monitor:HDMI-A-1, persistent:true
+      workspace=5, monitor:HDMI-A-1, default:true, persistent:true
       workspace=6, monitor:HDMI-A-1, persistent:true
 
       # Mirror
@@ -235,7 +235,7 @@ in
           "Super, Slash, exec, ags -t 'cheatsheet'"
           "Super, B, exec, ags -t 'sideleft'"
           "Super, A, exec, ags -t 'sideleft'"
-          "Super, O, exec, ags -t 'sideleft'"
+          "Super, O, toggleopaque"
           "Super, N, exec, ags -t 'sideright'"
           "Super, M, exec, ags run-js 'openMusicControls.value = !openMusicControls.value;'"
           "Super, Comma, exec, ags run-js 'openColorScheme.value = true; Utils.timeout(2000, () => openColorScheme.value = false);'"
