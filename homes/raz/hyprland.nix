@@ -1,7 +1,8 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, prev, ... }:
 let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+
 
   launcher = pkgs.writeShellScriptBin "hypr" ''
     #!/${pkgs.bash}/bin/bash
@@ -15,9 +16,9 @@ in
 {
   home.packages = with pkgs; [
     launcher
+    xdg-desktop-portal-hyprland
     adoptopenjdk-jre-bin
   ];
-
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";
@@ -46,27 +47,28 @@ in
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 1"
       ];
-      monitor = [''
-      DP-2,preferred,0x0,1 # Since the config starts with "monitor="
-      workspace=1, monitor:DP-2, default:true, persistent:true
-      workspace=2, monitor:DP-2, persistent:true 
-      workspace=3, monitor:DP-2, persistent:true
-      workspace=4, monitor:DP-2, persistent:true
+      monitor = [
+        ''
+          DP-2,preferred,0x0,1 # Since the config starts with "monitor="
+          workspace=1, monitor:DP-2, default:true, persistent:true
+          workspace=2, monitor:DP-2, persistent:true 
+          workspace=3, monitor:DP-2, persistent:true
+          workspace=4, monitor:DP-2, persistent:true
 
-      monitor=eDP-1,preferred,1920x0,1
-      workspace=7, monitor:eDP-1, default:true, persistent:true
-      workspace=8, monitor:eDP-1, persistent:true
-      workspace=9, monitor:eDP-1, persistent:true
-      workspace=10, monitor:eDP-1, persistent:true
+          monitor=eDP-1,preferred,1920x0,1
+          workspace=7, monitor:eDP-1, default:true, persistent:true
+          workspace=8, monitor:eDP-1, persistent:true
+          workspace=9, monitor:eDP-1, persistent:true
+          workspace=10, monitor:eDP-1, persistent:true
 
-      monitor=HDMI-A-1,preferred,-1080x-600,1,transform,3
-      workspace=5, monitor:HDMI-A-1, default:true, persistent:true
-      workspace=6, monitor:HDMI-A-1, persistent:true
+          monitor=HDMI-A-1,preferred,-1080x-600,1,transform,3
+          workspace=5, monitor:HDMI-A-1, default:true, persistent:true
+          workspace=6, monitor:HDMI-A-1, persistent:true
 
-      # Mirror
-      #monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
-      #monitor=,preferred,auto,1,mirror,eDP-1
-      ''
+          # Mirror
+          #monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
+          #monitor=,preferred,auto,1,mirror,eDP-1
+        ''
       ];
       "exec-once" = [
         "ags"
@@ -194,7 +196,8 @@ in
       };
       bind =
         let SLURP_COMMAND = "$(slurp -d -c eedcf5BB -b 4f425644 -s 00000000)";
-        in [
+        in
+        [
           "Super, C, exec, code --password-store=gnome"
           "Super, T, exec, foot --override shell=fish"
           "Super, E, exec, nautilus --new-window"
@@ -367,7 +370,7 @@ in
         "float, nm-connection-editor|blueman-manager"
         "float, zoom"
       ];
-      windowrulev2 = [ 
+      windowrulev2 = [
         "tile,class:(wpsoffice)"
         "workspace 7 silent, class:^(discord)$"
         "workspace 9, class:^(com.obsproject.Studio)$"
@@ -397,7 +400,7 @@ in
         "noanim, sideleft"
       ];
       source = [
-         "./colors.conf"
+        "./colors.conf"
       ];
     };
   };

@@ -17,6 +17,7 @@
       d-spy
       dolphin
       figma-linux
+      krita
       kolourpaint
       github-desktop
       google-chrome
@@ -77,6 +78,7 @@
       ydotool
       lazygit
       btop
+      openssl
       nvidia-system-monitor-qt
 
 

@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -8,12 +8,26 @@
 
     plugins = with pkgs.tmuxPlugins; [
       sensible
-        vim-tmux-navigator
-        yank
-        power-theme
-        prefix-highlight
-        resurrect
-        continuum
+      vim-tmux-navigator
+      yank
+      power-theme
+      prefix-highlight
+      {
+        plugin = resurrect;
+        extraConfig = ''
+          set -g @resurrect-strategy-vim 'session'
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
+      }
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-boot 'on'
+          set -g @continuum-save-interval '10'
+        '';
+      }
     ];
 
     extraConfig = ''
@@ -24,12 +38,7 @@
       set -g @tmux_power_theme 'default'
       # 'L' for left only, 'R' for right only and 'LR' for both
       set -g @tmux_power_prefix_highlight_pos 'LR'
-      set -g @continuum-restore 'on' 
-      # for vim
-      set -g @resurrect-strategy-vim 'session'
-      # for neovim
-      set -g @resurrect-strategy-nvim 'session'
-      
+ 
       # tmux-yank
       set-window-option -g mode-keys vi
       # key bindings

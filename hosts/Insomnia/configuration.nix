@@ -100,6 +100,7 @@
     zsh.enable = true;
     fish.enable = true;
     dconf.enable = true;
+    hyprland.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -129,6 +130,7 @@
       fish
       git
       gh
+      # tailscale
       # home-manager
       wget
       nixpkgs-fmt

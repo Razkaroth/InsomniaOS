@@ -6,5 +6,6 @@
     ./gnome.nix
     ./laptop.nix
     ./locale.nix
+    ./tailscale.nix
   ];
 }

@@ -12,6 +12,7 @@ alias nrb='IMPURITY_PATH=$(pwd) sudo --preserve-env=IMPURITY_PATH nixos-rebuild 
 
 alias n='nvim .'
 alias cls='clear'
+alias nd='nix develop'
 
 
 starship init fish | source

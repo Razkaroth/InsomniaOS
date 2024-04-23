@@ -10,7 +10,7 @@ add_newline = false
 # $character
 # """
 format = """
-$nix_shell$cmd_duration$directory $git_branch
+$nix_shell $cmd_duration$directory $git_branch
 $character
 """
 
