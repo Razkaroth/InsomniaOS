@@ -74,9 +74,6 @@ in
     ];
 
     extraConfigBeforePlugins = ''
-      unbind r
-      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded..."
-
       # open panes in current directory
       bind '"' split-window -c '#{pane_current_path}'
       bind % split-window -h -c '#{pane_current_path}'
@@ -86,19 +83,11 @@ in
       bind -n M-Down resize-pane -D 5
       bind -n M-Left resize-pane -L 5
       bind -n M-Right resize-pane -R 5
-
-      #### Key bindings
-      # Window movement
-      bind -n M-H previous-window
-      bind -n M-L next-window
-
+      
       # bind a to create a new window and A to create a new session
       bind a new-window
       bind A new-session
-      
-      # fix copy-paste on wayland
-      # set -s copy-command 'wl-copy'
-      # bind P paste-buffer
+
 
     '';
   };
