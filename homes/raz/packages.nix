@@ -1,4 +1,11 @@
 { pkgs,  ... }:
+let
+    swww-pkgs = import (builtins.fetchTarball {
+        url = "https://github.com/NixOS/nixpkgs/archive/e89cf1c932006531f454de7d652163a9a5c86668.tar.gz";
+    }) {};
+
+    swwwV0-9-1 = swww-pkgs.swww;
+in
 {
   imports = [
     ./programs
@@ -9,11 +16,13 @@
       sway
 
       # gui
+      anydesk
       blueberry
       bottles
       brave
       (mpv.override { scripts = [ mpvScripts.mpris ]; })
       chromium
+      calibre
       d-spy
       dolphin
       figma-linux
@@ -53,6 +62,7 @@
 
 
       # tools
+      aria2
       bat
       eza
       fd
@@ -80,6 +90,7 @@
       btop
       openssl
       nvidia-system-monitor-qt
+      nix-output-monitor
 
 
       # theming tools
@@ -100,7 +111,7 @@
       swaylock-effects
       swayidle
       slurp
-      swww
+      swwwV0-9-1
       wayshot
       wlsunset
       wl-clipboard

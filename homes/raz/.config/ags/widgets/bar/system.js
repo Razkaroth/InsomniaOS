@@ -108,7 +108,7 @@ const Utilities = () =>
         name: "Bluetooth manager",
         icon: "bluetooth",
         onClicked: () => {
-          Utils.execAsync(["blueman"]).catch(print);
+          Utils.execAsync(["blueman-manager"]).catch(print);
         },
       }),
       UtilButton({

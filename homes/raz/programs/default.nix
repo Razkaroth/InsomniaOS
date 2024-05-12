@@ -1,6 +1,6 @@
 {
   imports = [
-  ./tmux.nix
+  # ./tmux.nix
   ./spacetify.nix
   ];
 }

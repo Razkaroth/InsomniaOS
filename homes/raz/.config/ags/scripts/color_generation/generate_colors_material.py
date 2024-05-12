@@ -36,7 +36,7 @@ else:
     # try:
     # imagePath = subprocess.check_output("ags run-js 'wallpaper.get(0)'", shell=True)
     imagePath = subprocess.check_output("swww query | awk -F 'image: ' '{print $2}'", shell=True)
-    imagePath = imagePath[:-1].decode("utf-8") 
+    imagePath = imagePath[:-1].decode("utf-8").split('\n')[0]
     img = Image.open(imagePath)
     basewidth = 64
     wpercent = (basewidth/float(img.size[0]))

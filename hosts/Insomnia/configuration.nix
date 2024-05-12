@@ -1,5 +1,7 @@
 { pkgs, username, config, ... }: {
   # nix
+
+  time.hardwareClockInLocalTime = true;
   documentation.nixos.enable = false; # .desktop
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
@@ -26,19 +28,19 @@
     ];
   };
 
-  
+
   nixpkgs.config.permittedInsecurePackages = [
-                "electron-25.9.0"
-              ];
- 
+    "electron-25.9.0"
+  ];
+
   # virtualisation
   # programs.virt-manager.enable = true;
   # virtualisation = {
   #   libvirtd.enable = true;
   # };
 
- # docker 
- virtualisation.docker = {
+  # docker 
+  virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
     rootless = {
@@ -172,8 +174,8 @@
     powerOnBoot = true;
   };
   systemd.services.bluetooth.serviceConfig.ExecStart = [
-  ""
-  "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
+    ""
+    "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
   ];
   services.blueman.enable = true;
 

@@ -7,5 +7,8 @@
     ./laptop.nix
     ./locale.nix
     ./tailscale.nix
+    # Programs
+    ./sonarr.nix
+    ./tmux.nix
   ];
 }

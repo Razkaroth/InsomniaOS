@@ -132,3 +132,9 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+
+# if tmux is not running, start it
+if not test -n "$TMUX"
+  tmux new-session -A -s scratch
+end

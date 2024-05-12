@@ -62,6 +62,7 @@ in
       XCURSOR_THEME = cursor-theme;
       XCURSOR_SIZE = "24";
     };
+
     pointerCursor = {
       package = cursor-package;
       name = cursor-theme;
@@ -99,6 +100,7 @@ in
     cursorTheme = {
       name = cursor-theme;
       package = cursor-package;
+      size = 24;
     };
     iconTheme.name = moreWaita.name;
     gtk3.extraCss = ''

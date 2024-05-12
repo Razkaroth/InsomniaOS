@@ -5,6 +5,7 @@
 }: {
   environment = {
     sessionVariables = {
+      XCURSOR_SIZE = "24";
       NAUTILUS_EXTENSION_DIR = "${config.system.path}/lib/nautilus/extensions-4";
     };
 

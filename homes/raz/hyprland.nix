@@ -9,6 +9,7 @@ let
 
     export WLR_NO_HARDWARE_CURSORS=1
     export _JAVA_AWT_WM_NONREPARENTING=1
+    export XCURSOR_SIZE=24
 
     exec ${hyprland}/bin/Hyprland
   '';
@@ -19,6 +20,15 @@ in
     xdg-desktop-portal-hyprland
     adoptopenjdk-jre-bin
   ];
+
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   # x11.enable = true;
+  #   package = pkgs.bibata-cursors;
+  #   name = "Bibata-Modern-Classic";
+  #   size = 16;
+  # };
+  #
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";
