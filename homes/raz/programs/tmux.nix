@@ -1,22 +1,23 @@
 { pkgs, ... }:
 let
 
-  tmux-which-key = pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      pluginName = "tmux-which-key";
-      version = "main-2024-05-09";
-      src = pkgs.fetchFromGitHub {
-        owner = "alexwforsythe";
-        repo = "tmux-which-key/";
-        rev = "57220071739c723c3a318e9d529d3e5045f503b8";
-        sha256 = "sha256-zpg7XJky7PRa5sC7sPRsU2ZOjj0wcepITLAelPjEkSI=";
-      };
-    };
-
+  # tmux-which-key = pkgs.tmuxPlugins.mkTmuxPlugin
+  #   {
+  #     pluginName = "tmux-which-key";
+  #     version = "main-2024-05-09";
+  #     src = pkgs.fetchFromGitHub {
+  #       owner = "alexwforsythe";
+  #       repo = "tmux-which-key/";
+  #       rev = "57220071739c723c3a318e9d529d3e5045f503b8";
+  #       sha256 = "sha256-zpg7XJky7PRa5sC7sPRsU2ZOjj0wcepITLAelPjEkSI=";
+  #     };
+  #   };
+  #
 in
 {
   programs.tmux = {
     enable = true;
+    sensibleOnTop = false;
 
     baseIndex = 1;
     prefix = "M-s";
@@ -27,6 +28,20 @@ in
         extraConfig = ''
           # tmux-sensible
           set -g mouse on
+          # open panes in current directory
+          bind '"' split-window -c '#{pane_current_path}'
+          bind % split-window -h -c '#{pane_current_path}'
+
+          # window rezise with arrow keys
+          bind -n M-Up resize-pane -U 5
+          bind -n M-Down resize-pane -D 5
+          bind -n M-Left resize-pane -L 5
+          bind -n M-Right resize-pane -R 5
+
+          # bind a to create a new window and A to create a new session
+          bind a new-window
+          bind A new-session
+
         '';
       }
       vim-tmux-navigator
@@ -49,6 +64,7 @@ in
           set -g @tmux_power_theme 'default'
           # 'L' for left only, 'R' for right only and 'LR' for both
           set -g @tmux_power_prefix_highlight_pos 'LR'
+          # set -g status-right '𒀪: #{continuum_status}'
         '';
       }
       prefix-highlight
@@ -63,32 +79,15 @@ in
           set -g @resurrect-capture-pane-contents 'on'
         '';
       }
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-boot 'on'
-          set -g @continuum-save-interval '10'
-        '';
-      }
+      # {
+      #   plugin = continuum;
+      #   extraConfig = ''
+      #     set -g @continuum-restore 'on'
+      #     set -g @continuum-boot 'on'
+      #     set -g @continuum-save-interval '1'
+      #   '';
+      # }
     ];
 
-    extraConfigBeforePlugins = ''
-      # open panes in current directory
-      bind '"' split-window -c '#{pane_current_path}'
-      bind % split-window -h -c '#{pane_current_path}'
-
-      # window rezise with arrow keys
-      bind -n M-Up resize-pane -U 5
-      bind -n M-Down resize-pane -D 5
-      bind -n M-Left resize-pane -L 5
-      bind -n M-Right resize-pane -R 5
-      
-      # bind a to create a new window and A to create a new session
-      bind a new-window
-      bind A new-session
-
-
-    '';
   };
 }

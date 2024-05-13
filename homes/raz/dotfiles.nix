@@ -8,7 +8,7 @@
     "thorium-flags.conf".source = link ./.config/thorium-flags.conf;
     "starship.toml".source = link ./.config/starship.toml;
     ".zshrc".source = link ./.zshrc;
-    "mimeapps.list".source = link ./.config/mimeapps.list;
+    # "mimeapps.list".source = link ./.config/mimeapps.list;
     "colors.conf".source = link ./.config/hypr/colors.conf;
     "swaylock".source = link ./.config/swaylock;
     "neofetch".source = link ./.config/neofetch;
