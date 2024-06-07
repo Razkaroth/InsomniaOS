@@ -138,3 +138,4 @@ end
 if not test -n "$TMUX"
   tmux new-session -A -s scratch
 end
+thefuck --alias | source

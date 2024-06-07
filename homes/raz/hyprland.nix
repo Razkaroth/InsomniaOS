@@ -16,6 +16,7 @@ let
 in
 {
   home.packages = with pkgs; [
+    # hyprcursor
     launcher
     xdg-desktop-portal-hyprland
     adoptopenjdk-jre-bin

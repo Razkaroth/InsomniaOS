@@ -26,6 +26,7 @@ in
       {
         plugin = sensible;
         extraConfig = ''
+        exec-once = tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
           # tmux-sensible
           set -g mouse on
           # open panes in current directory

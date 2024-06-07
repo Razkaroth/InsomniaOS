@@ -37,7 +37,8 @@ function iconExists(iconName) {
 
 const OptionalOverview = async () => {
     try {
-        return (await import('./overview_hyprland.js')).default();
+        // return (await import('./overview_hyprland.js')).default();
+        return Widget.Box({});
     } catch {
         return Widget.Box({});
         // return (await import('./overview_hyprland.js')).default();

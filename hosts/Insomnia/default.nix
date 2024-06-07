@@ -8,6 +8,6 @@
     ./locale.nix
     ./tailscale.nix
     # Programs
-    ./sonarr.nix
+    # ./sonarr.nix
   ];
 }

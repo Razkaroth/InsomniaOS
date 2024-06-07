@@ -30,7 +30,7 @@ function loadCustomColorScheme(filePath) {
     const schemeManager = GtkSource.StyleSchemeManager.get_default();
     schemeManager.append_search_path(file.get_parent().get_path());
 }
-loadCustomColorScheme(CUSTOM_SOURCEVIEW_SCHEME_PATH);
+// loadCustomColorScheme(CUSTOM_SOURCEVIEW_SCHEME_PATH);
 
 //////////////////////////////////////////////////////////////////////////////
 

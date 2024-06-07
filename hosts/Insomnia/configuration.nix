@@ -72,6 +72,11 @@
         ];
       };
     };
+    udev.extraRules = ''
+      SUBSYSTEM=="input", GROUP="input", MODE="0667"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="1ea7", ATTRS{idProduct}=="0907", MODE:="666", GROUP="plugdev"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="1ea7", ATTRS{idProduct}=="0907", MODE="0666", GROUP="plugdev"
+    '';
   };
 
   systemd = {
@@ -139,6 +144,7 @@
       nixfmt
       neovim
       ripgrep
+      hyprcursor
     ];
   };
 
@@ -158,7 +164,7 @@
     users.${username} = {
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = [ "networkmanager" "wheel" "video" "input" "uinput" "libvirtd" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "input" "uinput" "libvirtd" "plugdev" ];
     };
   };
 
