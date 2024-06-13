@@ -38,7 +38,7 @@ in
       vlc
       mongodb-compass
       yad
-      obsidian
+      # obsidian TODO: Try to use later
       obs-studio
       docker
       # spotify it is already handled by spicetify-nix

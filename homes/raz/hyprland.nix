@@ -82,6 +82,9 @@ in
         ''
       ];
       "exec-once" = [
+        ''
+          tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
+        ''
         "ags"
         "swww kill; swww init"
         "fcitx5"
