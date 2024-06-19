@@ -38,7 +38,7 @@ in
       vlc
       mongodb-compass
       yad
-      # obsidian TODO: Try to use later
+      obsidian
       obs-studio
       docker
       # spotify it is already handled by spicetify-nix
@@ -80,6 +80,7 @@ in
       tmux
       unzip
       glib
+      git-lfs
       foot
       kitty
       starship

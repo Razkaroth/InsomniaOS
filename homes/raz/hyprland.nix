@@ -216,7 +216,7 @@ in
           "Super, T, exec, foot --override shell=fish"
           "Super, E, exec, nautilus --new-window"
           "Super+Alt, E, exec, thunar"
-          "Super, W, exec, firefox"
+          "Super, W, exec, google-chrome-stable"
           "Control+Super, W, exec, thorium-browser --ozone-platform-hint=wayland --gtk-version=4 --ignore-gpu-blocklist --enable-features=TouchpadOverscrollHistoryNavigation"
           "Super, X, exec, gnome-text-editor --new-window"
           "Super+Shift, W, exec, wps"
