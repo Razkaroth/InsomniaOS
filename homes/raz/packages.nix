@@ -49,7 +49,7 @@ in
       discord
       signal-desktop
       teams-for-linux
-
+      zoom
 
       # Music
       sunvox
@@ -86,6 +86,7 @@ in
       starship
       showmethekey
       vscode
+      qgis
       ydotool
       lazygit
       btop

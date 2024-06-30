@@ -28,6 +28,12 @@
     ];
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than +5";
+  };
+
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
