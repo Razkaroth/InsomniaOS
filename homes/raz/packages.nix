@@ -82,7 +82,7 @@ in
       glib
       git-lfs
       foot
-      kitty
+      # kitty
       starship
       showmethekey
       vscode

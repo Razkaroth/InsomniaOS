@@ -90,13 +90,13 @@
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "xterm";
+      command = "kitty";
       name = "term";
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
       idle-dim = false;
-      power-button-action = "interactive";
+      power-button-aaaction = "interactive";
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "nothing";
     };
@@ -130,7 +130,7 @@
     };
 
     "com/github/stunkymonkey/nautilus-open-any-terminal" = {
-      terminal = "foot";
+      terminal = "kitty";
     };
 
     "org/virt-manager/virt-manager/connections" = {

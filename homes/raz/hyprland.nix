@@ -213,7 +213,7 @@ in
         in
         [
           "Super, C, exec, code --password-store=gnome"
-          "Super, T, exec, foot --override shell=fish"
+          "Super, T, exec, kitty --override shell=fish"
           "Super, E, exec, nautilus --new-window"
           "Super+Alt, E, exec, thunar"
           "Super, W, exec, google-chrome-stable"
