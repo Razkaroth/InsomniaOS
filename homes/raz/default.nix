@@ -14,7 +14,6 @@ in
     ./browser.nix
     ./dconf.nix
     ./hyprland.nix
-    ./kitty.nix
     # ./mimelist.nix
     ./packages.nix
     # ./starship.nix
