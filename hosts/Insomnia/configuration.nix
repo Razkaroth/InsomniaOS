@@ -148,7 +148,6 @@
       wget
       nixpkgs-fmt
       nixfmt
-      neovim
       ripgrep
       hyprcursor
     ];
