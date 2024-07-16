@@ -75,6 +75,7 @@ in
       ffmpeg
       libnotify
       killall
+      quarto
       zip
       zoxide
       tmux
@@ -82,7 +83,7 @@ in
       glib
       git-lfs
       foot
-      # kitty
+      devenv
       starship
       showmethekey
       vscode
@@ -93,6 +94,8 @@ in
       openssl
       nvidia-system-monitor-qt
       nix-output-monitor
+      postman
+      insomnia
 
 
       # theming tools

@@ -27,7 +27,7 @@ in
         plugin = sensible;
         extraConfig = ''
           # exec-once = tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
-          set -g allow-passthrough all
+          set -gq allow-passthrough on
           # tmux-sensible
           set -g mouse on
           # open panes in current directory
