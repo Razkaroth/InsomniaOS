@@ -6,6 +6,7 @@
     ./gnome.nix
     ./laptop.nix
     ./locale.nix
+    ./overlays.nix
     ./tailscale.nix
     # Programs
     ./nvim.nix

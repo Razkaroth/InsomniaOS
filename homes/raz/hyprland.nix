@@ -186,8 +186,8 @@ in
           # "workspaces, 1, 3.5, md3_decel, slide"
           "workspaces, 1, 7, fluent_decel, slide"
           # "workspaces, 1, 7, fluent_decel, slidefade 15%"
-          # "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
-          "specialWorkspace, 1, 3, md3_decel, slidevert"
+          "specialWorkspace, 1, 3, md3_decel, slidefadevert 15%"
+          # "specialWorkspace, 1, 3, md3_decel, slidevert"
         ];
       };
       misc = {
@@ -225,7 +225,7 @@ in
           "Control+Shift, Escape, exec, gnome-system-monitor"
           "Super, Period, exec, pkill fuzzel || ~/.local/bin/fuzzel-emoji"
           "Super, Q, killactive, "
-          "Super+Alt, Space, togglefloating, "
+          "Super, Space, togglespecialworkspace"
           "Shift+Super+Alt, Q, exec, hyprctl kill"
           "Control+Shift+Alt, Delete, exec, pkill wlogout || wlogout -p layer-shell"
           "Control+Shift+Alt+Super, Delete, exec, systemctl poweroff"
@@ -291,8 +291,8 @@ in
           "Super+Alt, mouse_down, movetoworkspace, -1"
           "Super+Alt, mouse_up, movetoworkspace, +1"
           "Super, F, fullscreen, 0"
-          "Super, D, fullscreen, 1"
-          "Super_Alt, F, fakefullscreen, 0"
+          "Super, D, togglefloating"
+          "Super+Alt, F, fakefullscreen, 0"
           "Super, 1, workspace, 1"
           "Super, 2, workspace, 2"
           "Super, 3, workspace, 3"
@@ -388,10 +388,12 @@ in
         "tile,class:(wpsoffice)"
         "workspace 7 silent, class:^(discord)$"
         "workspace 9, class:^(com.obsproject.Studio)$"
-        "opacity 0.8 0.7, class:^(foot)$"
-        "opacity 0.8 0.7, class:^(kitty)$"
+        "opacity 1 0.7, class:^(foot)$"
+        "opacity 1 0.7, class:^(kitty)$"
         "opacity 0.9 0.7, class:^(firefox)$"
+        "opacity 0.9 0.7, class:^(org\.gnome\.Nautilus)$"
         "opacity 0.9 0.8, class:^([Nn]eovide)$"
+        "opacity 0.9 0.8, class:^([Ss]potify)$"
       ];
       layerrule = [
         "xray 1, .*"

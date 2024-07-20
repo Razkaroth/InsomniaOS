@@ -1,7 +1,7 @@
 {
   description = "raz's NixOS flake";
 
-  outputs = { self,  impurity, ... }: {
+  outputs = { self, impurity, ... }: {
     # editing flake.nix triggers certain utilities such as direnv
     # to reload - editing host configurations do not require a direnv
     # reload, so lets move hosts out of the way
@@ -9,21 +9,26 @@
   };
   inputs = {
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impurity.url = "github:outfoxxed/impurity.nix";
     thorium.url = "github:end-4/nix-thorium";
+    swww.url = "github:LGFae/swww";
+
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       # inputs.nixpkgs.follows = "hyprland";
     };
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ags.url = "github:Aylur/ags";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

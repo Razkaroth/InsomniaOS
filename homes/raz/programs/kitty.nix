@@ -12,6 +12,10 @@ in
       ''
         include ~/.cache/wal/colors-kitty.conf
 
+        # set background to black
+
+        background #000000
+
         confirm_os_window_close 0
         font_family FiraCode
         font_size 12
@@ -21,7 +25,4 @@ in
         mouse_map shift+left click grabbed,ungrabbed mouse_handle_click selection link prompt
       '';
   };
-
-
-
 }

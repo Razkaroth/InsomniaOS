@@ -1,10 +1,13 @@
-{ pkgs,  ... }:
+{ pkgs, ... }:
 let
-    swww-pkgs = import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/e89cf1c932006531f454de7d652163a9a5c86668.tar.gz";
-    }) {};
+  swww-pkgs = import
+    (builtins.fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/e89cf1c932006531f454de7d652163a9a5c86668.tar.gz";
+    })
+    { };
 
-    swwwV0-9-1 = swww-pkgs.swww;
+  swwwV0-9-1 = swww-pkgs.swww;
+  
 in
 {
   imports = [
@@ -41,7 +44,7 @@ in
       obsidian
       obs-studio
       docker
-      # spotify it is already handled by spicetify-nix
+      # spotify is already handled by spicetify-nix
       typora
       libreoffice
 
@@ -49,7 +52,8 @@ in
       discord
       signal-desktop
       teams-for-linux
-      zoom
+      whatsapp-for-linux
+      zoom-us
 
       # Music
       sunvox
@@ -73,6 +77,7 @@ in
       gojq
       acpi
       ffmpeg
+      gifski
       libnotify
       killall
       quarto
@@ -116,7 +121,8 @@ in
       swaylock-effects
       swayidle
       slurp
-      swwwV0-9-1
+      # swwwV0-9-1
+      swww
       wayshot
       wlsunset
       wl-clipboard

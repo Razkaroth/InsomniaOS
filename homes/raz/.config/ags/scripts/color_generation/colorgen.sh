@@ -13,7 +13,7 @@ if [ ! -f "$HOME/.cache/ags/user/colormode.txt" ]; then
 else
     lightdark=$(cat "$HOME/.cache/ags/user/colormode.txt") # either "" or "-l"
 fi
-backend="material" # color generator backend
+backend="pywal" # color generator backend
 if [ ! -f "$HOME/.cache/ags/user/colorbackend.txt" ]; then
     echo "material" > "$HOME/.cache/ags/user/colorbackend.txt"
 else
@@ -22,12 +22,14 @@ fi
 
 cd "$HOME/.config/ags/scripts/" || exit
 if [[ "$1" = "#"* ]]; then # this is a color
+  echo "Color detected"
     color_generation/generate_colors_material.py --color "$1" "$lightdark" > "$HOME"/.cache/ags/user/generated/material_colors.scss
     if [ "$2" = "--apply" ]; then
         cp "$HOME"/.cache/ags/user/generated/material_colors.scss "$HOME/.config/ags/scss/_material.scss"
         color_generation/applycolor.sh
     fi
 elif [ "$backend" = "material" ]; then
+    echo "Running material..."
     color_generation/generate_colors_material.py --path "$1" "$lightdark" > "$HOME"/.cache/ags/user/generated/material_colors.scss
     if [ "$2" = "--apply" ]; then
         cp "$HOME"/.cache/ags/user/generated/material_colors.scss "$HOME/.config/ags/scss/_material.scss"
@@ -35,8 +37,11 @@ elif [ "$backend" = "material" ]; then
     fi
 elif [ "$backend" = "pywal" ]; then
     # clear and generate
+    echo "Running wal..."
     wal -c
+    echo "Cleared wal cache"
     wal -i "$1" -n $lightdark -q
+    echo "Generated colors"
     # copy scss
     cp "$HOME/.cache/wal/colors.scss" "$HOME"/.cache/ags/user/generated/material_colors.scss
 

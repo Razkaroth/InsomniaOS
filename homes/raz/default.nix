@@ -21,6 +21,8 @@ in
     ./theme.nix
   ];
 
+ 
+
   home = {
     inherit username homeDirectory;
     sessionVariables = {
