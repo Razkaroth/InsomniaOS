@@ -8,6 +8,8 @@
     ./locale.nix
     ./overlays.nix
     ./tailscale.nix
+    # KBD
+    ./kanata.nix
     # Programs
     ./nvim.nix
     # ./sonarr.nix

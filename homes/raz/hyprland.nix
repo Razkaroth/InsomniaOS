@@ -124,7 +124,7 @@ in
         # Keyboard: Add a layout and uncomment kb_options for Win+Space switching shortcut
         kb_layout = "us";
         kb_variant = "intl";
-        kb_options = "grp:alt_shift_toggle, caps:swapescape";
+        # kb_options = "grp:alt_shift_toggle";
         numlock_by_default = true;
         repeat_delay = 250;
         repeat_rate = 35;

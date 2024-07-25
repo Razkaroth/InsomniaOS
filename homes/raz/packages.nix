@@ -101,6 +101,7 @@ in
       nix-output-monitor
       postman
       insomnia
+      speedtest-cli
 
 
       # theming tools
