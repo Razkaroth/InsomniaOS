@@ -14,7 +14,6 @@ in
 
         # set background to black
 
-        background #000000
 
         confirm_os_window_close 0
         font_family FiraCode

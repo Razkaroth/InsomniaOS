@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   # systemd.services.battery-charge-threshold =
   #   let
@@ -29,23 +29,40 @@
 
   hardware.nvidia = {
     prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+      sync.enable = true;
+      # offload = {
+      #   enable = true;
+      #   enableOffloadCmd = true;
+      # };
       nvidiaBusId = "PCI:1:0:0";
       amdgpuBusId = "PCI:7:0:0";
     };
 
     modesetting.enable = true;
 
-    powerManagement = {
-      enable = true;
-      finegrained = true;
-    };
 
     open = false;
     nvidiaSettings = false; # gui app
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
+
+
+  specialisation = {
+    on-the-go.configuration = {
+      system.nixos.tags = [ "on-the-go" ];
+      hardware.nvidia = {
+        prime.offload.enable = lib.mkForce true;
+        prime.offload.enableOffloadCmd = lib.mkForce true;
+        prime.sync.enable = lib.mkForce false;
+
+        powerManagement = {
+          enable = lib.mkForce true;
+          finegrained = lib.mkForce true;
+        };
+
+      };
+
+    };
+  };
+
 }

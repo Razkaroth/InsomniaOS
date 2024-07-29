@@ -19,6 +19,7 @@ in
     # hyprcursor
     launcher
     xdg-desktop-portal-hyprland
+    xwaylandvideobridge
     adoptopenjdk-jre-bin
   ];
 
@@ -388,8 +389,13 @@ in
         "tile,class:(wpsoffice)"
         "workspace 7 silent, class:^(discord)$"
         "workspace 9, class:^(com.obsproject.Studio)$"
-        "opacity 1 0.7, class:^(foot)$"
-        "opacity 1 0.7, class:^(kitty)$"
+        "opacity 0.9 0.7, class:^(foot)$"
+        "opacity 0.9 0.7, class:^(kitty)$"
+        "opacity 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim, class:^(xwaylandvideobridge)$"
+        "noinitialfocus, class:^(xwaylandvideobridge)$"
+        "maxsize 1 1, class:^(xwaylandvideobridge)$"
+        "noblur, class:^(xwaylandvideobridge)$"
         "opacity 0.9 0.7, class:^(firefox)$"
         "opacity 0.9 0.7, class:^(org\.gnome\.Nautilus)$"
         "opacity 0.9 0.8, class:^([Nn]eovide)$"

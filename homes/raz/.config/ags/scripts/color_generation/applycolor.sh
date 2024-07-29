@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo "Applying colors to all applications"
 # sleep 0 # idk i wanted some delay or colors dont get applied properly
 if [ ! -d "$HOME"/.cache/ags/user/generated ]; then
     mkdir -p "$HOME"/.cache/ags/user/generated
@@ -41,6 +41,7 @@ transparentize() {
 }
 
 get_light_dark() {
+    echo "Getting light/dark preference"
     lightdark=""
     if [ ! -f "$HOME"/.cache/ags/user/colormode.txt ]; then
         echo "" > "$HOME"/.cache/ags/user/colormode.txt
@@ -51,6 +52,7 @@ get_light_dark() {
 }
 
 apply_gtklock() {
+    echo "Applying colors to Gtklock"
     # Check if scripts/templates/gtklock/main.scss exists
     if [ ! -f "scripts/templates/gtklock/main.scss" ]; then
         echo "SCSS not found for Gtklock. Skipping that."
@@ -64,6 +66,7 @@ apply_gtklock() {
 }
 
 apply_fuzzel() {
+    echo "Applying colors to Fuzzel"
     # Check if scripts/templates/fuzzel/fuzzel.ini exists
     if [ ! -f "scripts/templates/fuzzel/fuzzel.ini" ]; then
         echo "Template file not found for Fuzzel. Skipping that."
@@ -81,6 +84,7 @@ apply_fuzzel() {
 }
 
 apply_foot() {
+    echo "Applying colors to Foot"
     if [ ! -f "scripts/templates/foot/foot.ini" ]; then
         echo "Template file not found for Foot. Skipping that."
         return
@@ -98,6 +102,7 @@ apply_foot() {
 }
 
 apply_term() {
+    echo "Applying colors to Terminal"
     # Check if scripts/templates/foot/foot.ini exists
     if [ ! -f "scripts/templates/terminal/sequences.txt" ]; then
         echo "Template file not found for Terminal. Skipping that."
@@ -120,6 +125,7 @@ apply_term() {
 }
 
 apply_hyprland() {
+    echo "Applying colors to Hyprland"
     # Check if scripts/templates/hypr/colors.conf exists
     if [ ! -f "scripts/templates/hypr/colors.conf" ]; then
         echo "Template file not found for Hyprland colors. Skipping that."
@@ -137,6 +143,7 @@ apply_hyprland() {
 }
 
 apply_gtk() { # Using gradience-cli
+    echo "Applying colors to GTK using Gradience"
     lightdark=$(get_light_dark)
 
     # Copy template
@@ -164,6 +171,7 @@ apply_gtk() { # Using gradience-cli
 }
 
 apply_ags() {
+    echo "Applying colors to AGS"
     sassc "$HOME"/.config/ags/scss/main.scss "$HOME"/.config/ags/style.css
     ags run-js 'openColorScheme.value = true; Utils.timeout(2000, () => openColorScheme.value = false);'
     ags run-js "App.resetCss(); App.applyCss('${HOME}/.config/ags/style.css');"
