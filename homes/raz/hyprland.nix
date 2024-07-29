@@ -86,6 +86,7 @@ in
         ''
           tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
         ''
+        "easyeffects --gapplication-service"
         "ags"
         "swww kill; swww init"
         "fcitx5"
