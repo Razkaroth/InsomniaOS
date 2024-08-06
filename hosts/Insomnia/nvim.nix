@@ -5,6 +5,7 @@ let
     extraLuaPackages = p: with p; [
       # ... other lua packages
       p.magick # for image rendering
+      p.tiktoken_core
     ];
     extraPython3Packages = p: with p; [
       pynvim

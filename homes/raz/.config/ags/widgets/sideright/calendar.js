@@ -7,6 +7,7 @@ import { getCalendarLayout } from "../../lib/calendarlayout.js";
 import { setupCursorHover } from "../../lib/cursorhover.js";
 
 import { TodoWidget } from "./todolist.js";
+import { Todo2DayWidget } from "./todo2DayList.js";
 
 let calendarJson = getCalendarLayout(undefined, true);
 let monthshift = 0;
@@ -149,6 +150,7 @@ const contentStack = Widget.Stack({
     children: {
         'calendar': CalendarWidget(),
         'todo': TodoWidget(),
+        'todo2Day': Todo2DayWidget(),
         // 'stars': Widget.Label({ label: 'GitHub feed will be here' }),
     },
     transition: 'slide_up_down',
@@ -198,6 +200,7 @@ export const ModuleCalendar = () => Box({
             className: 'sidebar-navrail spacing-v-10',
             children: [
                 StackButton('calendar', 'calendar_month', 'Calendar'),
+                StackButton('todo2Day', 'lists', 'To Do Today'),
                 StackButton('todo', 'lists', 'To Do'),
                 // StackButton(box, 'stars', 'star', 'GitHub'),
             ]

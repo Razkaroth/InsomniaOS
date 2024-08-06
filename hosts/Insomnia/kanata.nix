@@ -10,14 +10,14 @@
             tap-timeout 200
           )
           (defalias
-            caps (tap-hold 100 100 esc (layer-while-held fn))
+            caps (tap-hold 200 250 esc (layer-while-held fn))
             n   (macro S-grv n)
             grv (macro S-grv spc)
             i   (macro '     i)
             tmx (tap-dance-eager 10000 ( 
                   (macro A-s d)
                   (macro t m u x spc k i l l - s e r v e r ret) 
-                  (macro . / t m u x S-r e ▶ ret)
+                  (macro . / t r . s h ret)
                   (macro t m u x ret)
                   (macro A-s C-r)
                 ))

@@ -3,6 +3,7 @@ import App from 'resource:///com/github/Aylur/ags/app.js';
 import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 const { execAsync, exec } = Utils;
 import Todo from "../../services/todo.js";
+import Todo2Day from "../../services/todo2Day.js";
 
 export function hasUnterminatedBackslash(inputString) {
     // Use a regular expression to match a trailing odd number of backslashes
@@ -46,8 +47,11 @@ export function launchCustomCommand(command) {
             .then(execAsync(['bash', '-c', `${App.configDir}/scripts/color_generation/switchwall.sh --noswitch`]).catch(print))
             .catch(print);
     }
-    else if (args[0] == '>todo') { // Todo
+    else if (args[0] == '>td') { // Todo
         Todo.add(args.slice(1).join(' '));
+    }
+    else if (args[0] == '>2d') { // Todo2Day
+        Todo2Day.add(args.slice(1).join(' '));
     }
     else if (args[0] == '>shutdown') { // Shut down
         execAsync([`bash`, `-c`, `systemctl poweroff`]).catch(print);

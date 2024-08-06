@@ -40,6 +40,10 @@
 
     modesetting.enable = true;
 
+        powerManagement = {
+          enable = true;
+        };
+
 
     open = false;
     nvidiaSettings = false; # gui app
