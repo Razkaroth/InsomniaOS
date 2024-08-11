@@ -14,6 +14,8 @@
             n   (macro S-grv n)
             grv (macro S-grv spc)
             i   (macro '     i)
+            op  S-9
+            cp  S-0
             tmx (tap-dance-eager 10000 ( 
                   (macro A-s d)
                   (macro t m u x spc k i l l - s e r v e r ret) 
@@ -40,11 +42,11 @@
           )
 
           (deflayer fn
-            caps @grv  f1     f2     f3      f4      f5      f6    f7       f8     f9   f10  f11  f12  ins
-            tab   q    w      e      lrld    @tmx    y       u     @i       o      pp   [    ]    \    del
-             _    a    s      d      f       g       ◀       ▼     ▲        ▶      @n   '    ret       pgup
-            lsft  z    x    C-S-c  C-S-v    prev     next    mute  voldwn   volu   /    rsft           pgdn
-            lctl  lmet lalt           ret            ralt    rmet  rctl
+            caps @grv  f1     f2      f3      f4      f5      f6    f7       f8     f9   f10  f11  f12  ins
+            tab   q    w      end     lrld    @tmx    y       u     @i       o      pp   @op  @cp  \    del
+             _    a    s      bspc    home    g       ◀       ▼     ▲        ▶      @n   '    ret       pgup
+            lsft  z    x      C-S-c   C-S-v   prev    next    mute  voldwn   volu   /    rsft           pgdn
+            lctl  lmet lalt            ret            ralt    rmet  rctl
           )
         '';
         extraDefCfg = "process-unmapped-keys yes";

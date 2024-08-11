@@ -145,6 +145,7 @@ in
       uwuify
       neofetch
       thefuck
+      #solaar
     ];
   };
 }
