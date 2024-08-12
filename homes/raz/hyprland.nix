@@ -20,7 +20,7 @@ in
     launcher
     xdg-desktop-portal-hyprland
     xwaylandvideobridge
-    adoptopenjdk-jre-bin
+    temurin-jre-bin
   ];
 
   # home.pointerCursor = {
