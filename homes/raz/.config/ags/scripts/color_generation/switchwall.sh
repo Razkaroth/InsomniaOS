@@ -18,6 +18,10 @@ else
     fi
 
 
+    # Save the image path to the cache
+    echo "$imgpath" > "$HOME/.cache/ags/user/wallpaper.txt"
+
+
     # ags run-js "wallpaper.set('')"
     # sleep 0.1 && ags run-js "wallpaper.set('${imgpath}')" &
     swww img "$imgpath" --transition-step 100 --transition-fps 60 \

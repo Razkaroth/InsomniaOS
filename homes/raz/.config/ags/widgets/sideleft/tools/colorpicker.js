@@ -1,16 +1,12 @@
-// TODO: Make selection update when entry changes
 const { Gtk } = imports.gi;
-import App from 'resource:///com/github/Aylur/ags/app.js';
-import Variable from 'resource:///com/github/Aylur/ags/variable.js';
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
-const { execAsync, exec } = Utils;
-const { Box, Button, Entry, EventBox, Icon, Label, Overlay, Scrollable } = Widget;
 import SidebarModule from './module.js';
 import { MaterialIcon } from '../../../lib/materialicon.js';
 import { setupCursorHover } from '../../../lib/cursorhover.js';
+const { Box, Button, Entry, EventBox, Label, Overlay } = Widget;
 
-import { ColorPickerSelection, hslToHex, hslToRgbValues, hexToHSL } from './color.js';
+import { ColorPickerSelection, hslToHex, hslToRgbValues } from './color.js';
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
@@ -39,7 +35,6 @@ export default () => {
       className: 'sidebar-module-colorpicker-hue-cursor',
     })],
     setup: (self) => self.hook(selectedColor, () => {
-      const widgetHeight = hueRange.children[0].get_allocated_height();
       self.setCss(`margin-top: ${13.636 * selectedColor.hue / 360}rem;`)
     }),
   });
@@ -51,7 +46,7 @@ export default () => {
       }),
       attribute: {
         clicked: false,
-        setHue: (self, event) => {
+        setHue: (_self, event) => {
           const widgetHeight = hueRange.children[0].get_allocated_height();
           const [_, cursorX, cursorY] = event.get_coords();
           const cursorYPercent = clamp(cursorY / widgetHeight, 0, 1);
@@ -103,7 +98,6 @@ export default () => {
             `, // Why 13.636rem? see class name in stylesheet
       attribute: {
         update: (self) => {
-          const allocation = saturationAndLightnessRange.children[0].get_allocation();
           self.setCss(`
                         margin-left: ${13.636 * selectedColor.xAxis / 100}rem;
                         margin-top: ${13.636 * (100 - selectedColor.yAxis) / 100}rem;
@@ -146,7 +140,7 @@ export default () => {
       }),
       attribute: {
         clicked: false,
-        setSaturationAndLightness: (self, event) => {
+        setSaturationAndLightness: (_self, event) => {
           const allocation = saturationAndLightnessRange.children[0].get_allocation();
           const [_, cursorX, cursorY] = event.get_coords();
           const cursorXPercent = clamp(cursorX / allocation.width, 0, 1);

@@ -109,7 +109,7 @@
         "headerbar_backdrop_color": "@headerbar_bg_color",
         "headerbar_shade_color": "rgba(0, 0, 0, 0.09)",
         "card_bg_color": "{{ $background }}",
-        "card_fg_color": "{{ $onSecondaryContainer }}",
+        "card_fg_color": "{{ $onBackground }}",
         "card_shade_color": "rgba(0, 0, 0, 0.09)",
         "dialog_bg_color": "{{ $secondaryContainer }}",
         "dialog_fg_color": "{{ $onSecondaryContainer }}",

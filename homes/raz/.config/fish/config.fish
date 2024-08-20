@@ -8,11 +8,13 @@ if status is-interactive
     set fish_greeting
 end
 
+set -gx SHELL (which fish)
+
 alias nrb='IMPURITY_PATH=$(pwd) sudo --preserve-env=IMPURITY_PATH nixos-rebuild switch --flake . --impure'
 
 alias n='nvim .'
 alias cls='clear'
-alias nd='nix develop'
+alias nd='nix develop '
 alias ns='nix-shell'
 
 

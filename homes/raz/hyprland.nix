@@ -347,12 +347,12 @@ in
         "Super+Shift,M,   exec, ags run-js 'indicator.popup(1);'"
       ];
       bindle = [
-        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
         ",XF86MonBrightnessUp, exec, ags run-js 'brightness.screen_value += 0.05;indicator.popup(1);'"
         ",XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;indicator.popup(1);'"
-        # ",XF86AudioRaiseVolume, exec, ags run-js 'indicator.popup(1);'"
-        # ",XF86AudioLowerVolume, exec, ags run-js 'indicator.popup(1);'"
+        ",XF86AudioRaiseVolume, exec, ags run-js 'indicator.popup(1);'"
+        ",XF86AudioLowerVolume, exec, ags run-js 'indicator.popup(1);'"
         ",XF86MonBrightnessUp, exec, ags run-js 'indicator.popup(1);'"
         ",XF86MonBrightnessDown, exec, ags run-js 'indicator.popup(1);'"
         # "Alt, I, exec, ydotool key 103:1 103:0 "
@@ -389,6 +389,7 @@ in
       windowrulev2 = [
         "tile,class:(wpsoffice)"
         "workspace 7 silent, class:^(discord)$"
+        "workspace 5 silent, class:^([Ss]potify)$"
         "workspace 9, class:^(com.obsproject.Studio)$"
         "opacity 0.9 0.7, class:^(foot)$"
         "opacity 0.9 0.7, class:^(kitty)$"

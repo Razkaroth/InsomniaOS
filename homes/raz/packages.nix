@@ -14,7 +14,7 @@ in
     ./programs
   ];
   home = {
-    packages = with pkgs; with nodePackages_latest; with gnome; with libsForQt5; [
+    packages = with pkgs; with nodePackages_latest; with libsForQt5; [
       i3 # gaming
       sway
 
@@ -27,20 +27,21 @@ in
       chromium
       calibre
       d-spy
+      docker-compose
       dolphin
       figma-linux
       krita
       kolourpaint
       github-desktop
       google-chrome
-      gnome.nautilus
+      nautilus
       gwenview
       icon-library
       dconf-editor
       qt5.qtimageformats
       vlc
-      mongodb-compass
       yad
+      pomodoro
       obsidian
       obs-studio
       docker
@@ -92,7 +93,7 @@ in
       starship
       showmethekey
       vscode
-      qgis
+      #qgis
       ydotool
       lazygit
       btop
@@ -102,7 +103,13 @@ in
       postman
       insomnia
       speedtest-cli
-
+      
+      #forensics
+      
+      #DB
+      sqlite
+      sqlitebrowser
+      mongodb-compass
 
       # theming tools
       gradience

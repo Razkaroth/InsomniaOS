@@ -2339,9 +2339,9 @@ popover {
   border-radius: 1.159rem;
   -gtk-outline-radius: 1.159rem;
   min-width: 29.659rem;
-  background-color: #faf7f3;
+  background-color: #090d0c;
   padding: 0rem 1.023rem;
-  background: linear-gradient(127deg, rgba(190, 187, 187, 0.7), rgba(190, 187, 187, 0.55) 70.71%), linear-gradient(217deg, rgba(130, 126, 131, 0.7), rgba(130, 126, 131, 0.55) 70.71%), radial-gradient(circle at 0% 100%, #676767 13%, rgba(0, 0, 0, 0) 100%), linear-gradient(336deg, rgba(103, 103, 103, 0.7), rgba(103, 103, 103, 0.55) 70.71%), linear-gradient(#faf7f3, #faf7f3); }
+  background: linear-gradient(127deg, rgba(48, 57, 53, 0.7), rgba(48, 57, 53, 0.55) 70.71%), linear-gradient(217deg, rgba(219, 40, 38, 0.7), rgba(219, 40, 38, 0.55) 70.71%), radial-gradient(circle at 0% 100%, #72837B 13%, rgba(0, 0, 0, 0) 100%), linear-gradient(336deg, rgba(120, 139, 136, 0.7), rgba(120, 139, 136, 0.55) 70.71%), linear-gradient(#090d0c, #090d0c); }
 
 .osd-music-cover-fallback {
   transition: 300ms cubic-bezier(0, 0.55, 0.45, 1);
@@ -2349,8 +2349,8 @@ popover {
   -gtk-outline-radius: 0.818rem;
   min-width: 7.5rem;
   min-height: 7.5rem;
-  background-color: rgba(251, 248, 245, 0.3);
-  color: #1c1b1c; }
+  background-color: rgba(25, 29, 28, 0.31);
+  color: #cec7c6; }
 
 .osd-music-cover {
   border-radius: 0.818rem;
@@ -2376,13 +2376,13 @@ popover {
   transition: 300ms cubic-bezier(0, 0.55, 0.45, 1);
   font-family: "Gabarito", "Poppins", "Lexend", sans-serif;
   font-size: 1.364rem;
-  color: #1c1b1c; }
+  color: #cec7c6; }
 
 .osd-music-artists {
   transition: 300ms cubic-bezier(0, 0.55, 0.45, 1);
   font-family: "Rubik", "Geist", "AR One Sans", "Reddit Sans", "Inter", "Roboto", "Ubuntu", "Noto Sans", sans-serif;
   font-size: 0.955rem;
-  color: rgba(39, 38, 39, 0.9); }
+  color: rgba(198, 188, 187, 0.9); }
 
 .osd-music-pill {
   transition: 300ms cubic-bezier(0, 0.55, 0.45, 1);
@@ -2391,8 +2391,8 @@ popover {
   font-family: "Gabarito", "Poppins", "Lexend", sans-serif;
   min-width: 1.833rem;
   padding: 0.273rem 0.682rem;
-  background-color: rgba(173, 170, 170, 0.5);
-  color: #1c1b1c; }
+  background-color: rgba(98, 54, 52, 0.5);
+  color: #cec7c6; }
 
 .osd-music-controls {
   transition: 300ms cubic-bezier(0, 0.55, 0.45, 1);
@@ -2401,8 +2401,8 @@ popover {
   font-family: "Gabarito", "Poppins", "Lexend", sans-serif;
   min-width: 1.833rem;
   padding: 0.205rem;
-  background-color: rgba(173, 170, 170, 0.5);
-  color: #1c1b1c; }
+  background-color: rgba(98, 54, 52, 0.5);
+  color: #cec7c6; }
 
 .osd-music-controlbtn {
   transition: 300ms cubic-bezier(0.1, 1, 0, 1);
@@ -2413,10 +2413,10 @@ popover {
 
 .osd-music-controlbtn:hover,
 .osd-music-controlbtn:focus {
-  background-color: rgba(137, 134, 135, 0.55); }
+  background-color: rgba(125, 90, 89, 0.55); }
 
 .osd-music-controlbtn:active {
-  background-color: rgba(123, 121, 121, 0.575); }
+  background-color: rgba(135, 104, 103, 0.575); }
 
 .osd-music-controlbtn-txt {
   transition: 300ms cubic-bezier(0, 0.55, 0.45, 1);
@@ -2430,15 +2430,15 @@ popover {
   min-width: 0.409rem;
   min-height: 3.068rem;
   padding: 0.273rem;
-  color: #1c1b1c; }
+  color: #cec7c6; }
 
 .osd-music-playstate {
   transition: 300ms cubic-bezier(0.1, 1, 0, 1);
   min-height: 3.068rem;
   min-width: 3.068rem;
   border-radius: 10rem;
-  background-color: rgba(173, 170, 170, 0.5);
-  color: #1c1b1c; }
+  background-color: rgba(98, 54, 52, 0.5);
+  color: #cec7c6; }
 
 .osd-music-playstate-btn > label {
   transition: 50ms cubic-bezier(0.05, 0.7, 0.1, 1);

@@ -4,16 +4,18 @@ const { Box, Button, EventBox, Label, Revealer, Scrollable, Stack } = Widget;
 const { execAsync, exec } = Utils;
 import QuickScripts from './tools/quickscripts.js';
 import ColorPicker from './tools/colorpicker.js';
+import Pomodoro from './tools/pomodoro.js';
 
 export default Scrollable({
-    hscroll: "never",
-    vscroll: "automatic",
-    child: Box({
-        vertical: true,
-        className: 'spacing-v-10',
-        children: [
-            QuickScripts(),
-            ColorPicker(),
-        ]
-    })
+  hscroll: "never",
+  vscroll: "automatic",
+  child: Box({
+    vertical: true,
+    className: 'spacing-v-10',
+    children: [
+      QuickScripts(),
+      ColorPicker(),
+      // Pomodoro(),
+    ]
+  })
 });

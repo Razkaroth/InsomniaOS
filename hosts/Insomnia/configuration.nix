@@ -147,9 +147,10 @@
       # home-manager
       wget
       nixpkgs-fmt
-      nixfmt
+      nixfmt-classic
       ripgrep
       hyprcursor
+      libimobiledevice
     ];
   };
 
