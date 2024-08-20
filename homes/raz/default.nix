@@ -29,6 +29,8 @@ in
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
       XCURSOR_SIZE = "24";
+      # Gaming
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
       # Other variables
       # NIX_BUILD_SHELL = "fish";
     };

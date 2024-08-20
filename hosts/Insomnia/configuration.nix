@@ -114,8 +114,10 @@
     fish.enable = true;
     dconf.enable = true;
     hyprland.enable = true;
+    gamemode.enable = true;
     steam = {
       enable = true;
+      gamescopeSession.enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
@@ -151,6 +153,13 @@
       ripgrep
       hyprcursor
       libimobiledevice
+      # Gaming
+      mangohud
+      protontricks
+      protonup
+      # - launchers
+      lutris
+      heroic
     ];
   };
 
