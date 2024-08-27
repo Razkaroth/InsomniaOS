@@ -18,6 +18,8 @@ in { pkgs, impurity, ... }: {
     # ./starship.nix
     ./sway.nix
     ./theme.nix
+
+    ./nixarr.nix
   ];
 
   home = {
