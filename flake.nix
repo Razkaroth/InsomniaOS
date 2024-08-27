@@ -9,9 +9,8 @@
   };
   inputs = {
 
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        home-manager = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -19,6 +18,7 @@
     thorium.url = "github:end-4/nix-thorium";
     swww.url = "github:LGFae/swww";
 
+    nixarr.url = "github:rasmus-kirk/nixarr";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {

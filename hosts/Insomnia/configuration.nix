@@ -34,10 +34,7 @@
     options = "--delete-older-than +5";
   };
 
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   # virtualisation
   # programs.virt-manager.enable = true;
@@ -55,14 +52,14 @@
     };
   };
 
-
   services = {
     envfs.enable = true;
     greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd Hyprland";
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd Hyprland";
           user = "greeter";
         };
       };
@@ -73,9 +70,7 @@
       displayManager.startx.enable = true;
       desktopManager.gnome = {
         enable = true;
-        extraGSettingsOverridePackages = [
-          pkgs.nautilus-open-any-terminal
-        ];
+        extraGSettingsOverridePackages = [ pkgs.nautilus-open-any-terminal ];
       };
     };
     udev.extraRules = ''
@@ -93,7 +88,8 @@
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        ExecStart =
+          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
@@ -117,21 +113,30 @@
     gamemode.enable = true;
     steam = {
       enable = true;
+      # Rocksmith extra setup
+      package = pkgs.steam.override {
+        extraLibraries = pkgs: [ pkgs.pkgsi686Linux.pipewire.jack ];
+        extraPkgs = pkgs: [ pkgs.wineasio ];
+      };
       gamescopeSession.enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      remotePlay.openFirewall =
+        true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall =
+        true; # Open ports in the firewall for Source Dedicated Server
     };
     firefox = {
       enable = true;
-      nativeMessagingHosts.packages = [ pkgs.plasma5Packages.plasma-browser-integration ];
+      nativeMessagingHosts.packages =
+        [ pkgs.plasma5Packages.plasma-browser-integration ];
     };
     # Run dynamically linked stuff
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [
-        # Add any missing dynamic libraries for unpackaged programs
-        # here, NOT in environment.systemPackages
-      ];
+      libraries = with pkgs;
+        [
+          # Add any missing dynamic libraries for unpackaged programs
+          # here, NOT in environment.systemPackages
+        ];
     };
   };
   # packages
@@ -179,7 +184,15 @@
     users.${username} = {
       isNormalUser = true;
       shell = pkgs.fish;
-      extraGroups = [ "networkmanager" "wheel" "video" "input" "uinput" "libvirtd" "plugdev" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "video"
+        "input"
+        "uinput"
+        "libvirtd"
+        "plugdev"
+      ];
     };
   };
 
@@ -199,8 +212,6 @@
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
   ];
   services.blueman.enable = true;
-
-
 
   # Boot
   boot = {

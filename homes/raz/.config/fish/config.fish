@@ -1,6 +1,8 @@
 function fish_prompt
-  set_color cyan; echo (pwd)
-  set_color green; echo '> '
+    set_color cyan
+    echo (pwd)
+    set_color green
+    echo '> '
 end
 
 if status is-interactive
@@ -12,7 +14,7 @@ set -gx SHELL (which fish)
 
 alias nrb='IMPURITY_PATH=$(pwd) sudo --preserve-env=IMPURITY_PATH nixos-rebuild switch --flake . --impure'
 
-alias n='nvim .'
+alias n='nvim'
 alias cls='clear'
 alias nd='nix develop '
 alias ns='nix-shell'
@@ -132,13 +134,13 @@ alias zi=__zoxide_zi
 # pnpm
 set -gx PNPM_HOME "/home/raz/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
 
 
 # if tmux is not running, start it
 if not test -n "$TMUX"
-  tmux new-session -A -s scratch
+    tmux new-session -A -s scratch
 end
 thefuck --alias | source

@@ -1,8 +1,7 @@
 let
   username = "raz";
   homeDirectory = "/home/raz";
-in
-{ pkgs, impurity, ... }: {
+in { pkgs, impurity, ... }: {
   imports = [
     # Cachix
     # ./cachix.nix
@@ -21,8 +20,6 @@ in
     ./theme.nix
   ];
 
- 
-
   home = {
     inherit username homeDirectory;
     sessionVariables = {
@@ -30,18 +27,20 @@ in
       NIXPKGS_ALLOW_INSECURE = "1";
       XCURSOR_SIZE = "24";
       # Gaming
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+        "\${HOME}/.steam/root/compatibilitytools.d";
+      STEAMLIBRARY = "\${HOME}/.steam/steam";
+      PROTON_EXPERIMENTAL =
+        "\${HOME}/.local/share/Steam/steamapps/common/Proton - Experimental";
+      PROTON_GE = "\${STEAM_EXTRA_COMPAT_TOOLS_PATHS}/Proton-GE";
+      PROTON = "\${PROTON_EXPERIMENTAL}";
       # Other variables
       # NIX_BUILD_SHELL = "fish";
     };
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
-  xdg.userDirs = {
-    createDirectories = true;
-  };
+  xdg.userDirs = { createDirectories = true; };
   # xdg.mime.enable = true;
 
   gtk = {
@@ -72,5 +71,6 @@ in
       nix-direnv.enable = true;
     };
   };
-  home.stateVersion = "23.11"; # this must be the version at which you have started using the program
+  home.stateVersion =
+    "23.11"; # this must be the version at which you have started using the program
 }
