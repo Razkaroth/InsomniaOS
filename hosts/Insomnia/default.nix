@@ -12,5 +12,6 @@
     ./kanata.nix
     # Programs
     ./nvim.nix
+    ./nixarr.nix
   ];
 }

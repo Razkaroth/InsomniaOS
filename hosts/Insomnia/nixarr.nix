@@ -1,4 +1,4 @@
-{
+{ ... }: {
   nixarr = {
     enable = true;
     # These two values are also the default, but you can set them to whatever

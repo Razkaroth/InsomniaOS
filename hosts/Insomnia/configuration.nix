@@ -187,6 +187,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "media"
         "video"
         "input"
         "uinput"

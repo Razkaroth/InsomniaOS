@@ -19,7 +19,6 @@ in { pkgs, impurity, ... }: {
     ./sway.nix
     ./theme.nix
 
-    ./nixarr.nix
   ];
 
   home = {
