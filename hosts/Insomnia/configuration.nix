@@ -34,7 +34,8 @@
     options = "--delete-older-than +5";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  nixpkgs.config.permittedInsecurePackages =
+    [ "electron-25.9.0" "electron-29.4.6" ];
 
   # virtualisation
   # programs.virt-manager.enable = true;

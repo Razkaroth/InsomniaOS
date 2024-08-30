@@ -51,7 +51,7 @@ in {
         # Comms
         discord
         signal-desktop
-        teams-for-linux
+        # teams-for-linux
         whatsapp-for-linux
         zoom-us
 

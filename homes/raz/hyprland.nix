@@ -3,7 +3,6 @@ let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
-
   launcher = pkgs.writeShellScriptBin "hypr" ''
     #!/${pkgs.bash}/bin/bash
 
@@ -13,8 +12,7 @@ let
 
     exec ${hyprland}/bin/Hyprland
   '';
-in
-{
+in {
   home.packages = with pkgs; [
     # hyprcursor
     launcher
@@ -35,7 +33,8 @@ in
     name = "Settings";
     comment = "Gnome Control Center";
     icon = "org.gnome.Settings";
-    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
+    exec =
+      "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
     categories = [ "X-Preferences" ];
     terminal = false;
   };
@@ -59,29 +58,27 @@ in
         "QT_STYLE_OVERRIDE,kvantum"
         "WLR_NO_HARDWARE_CURSORS, 1"
       ];
-      monitor = [
-        ''
-          DP-2,preferred,0x0,1 # Since the config starts with "monitor="
-          workspace=1, monitor:DP-2, default:true, persistent:true
-          workspace=2, monitor:DP-2, persistent:true 
-          workspace=3, monitor:DP-2, persistent:true
-          workspace=4, monitor:DP-2, persistent:true
+      monitor = [''
+        DP-2,preferred,0x0,1 # Since the config starts with "monitor="
+        workspace=1, monitor:DP-2, default:true, persistent:true
+        workspace=2, monitor:DP-2, persistent:true 
+        workspace=3, monitor:DP-2, persistent:true
+        workspace=4, monitor:DP-2, persistent:true
 
-          monitor=eDP-1,preferred,1920x0,1
-          workspace=7, monitor:eDP-1, default:true, persistent:true
-          workspace=8, monitor:eDP-1, persistent:true
-          workspace=9, monitor:eDP-1, persistent:true
-          workspace=10, monitor:eDP-1, persistent:true
+        monitor=eDP-1,preferred,1920x0,1
+        workspace=7, monitor:eDP-1, default:true, persistent:true
+        workspace=8, monitor:eDP-1, persistent:true
+        workspace=9, monitor:eDP-1, persistent:true
+        workspace=10, monitor:eDP-1, persistent:true
 
-          monitor=HDMI-A-1,preferred,-1080x-600,1,transform,3
-          workspace=5, monitor:HDMI-A-1, default:true, persistent:true
-          workspace=6, monitor:HDMI-A-1, persistent:true
+        monitor=HDMI-A-1,preferred,-1080x-600,1,transform,3
+        workspace=5, monitor:HDMI-A-1, default:true, persistent:true
+        workspace=6, monitor:HDMI-A-1, persistent:true
 
-          # Mirror
-          #monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
-          #monitor=,preferred,auto,1,mirror,eDP-1
-        ''
-      ];
+        # Mirror
+        #monitor=DP-3,1920x1080@60,0x0,1,mirror,DP-2
+        #monitor=,preferred,auto,1,mirror,eDP-1
+      ''];
       "exec-once" = [
         ''
           tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
@@ -212,8 +209,7 @@ in
       };
       bind =
         let SLURP_COMMAND = "$(slurp -d -c eedcf5BB -b 4f425644 -s 00000000)";
-        in
-        [
+        in [
           "Super, C, exec, code --password-store=gnome"
           "Super, T, exec, kitty --override shell=fish"
           "Super, E, exec, nautilus --new-window"
@@ -254,7 +250,7 @@ in
           "Super, Slash, exec, ags -t 'cheatsheet'"
           "Super, B, exec, ags -t 'sideleft'"
           "Super, A, exec, ags -t 'sideleft'"
-          "Super, O, toggleopaque"
+          "Super, O, exec, hyprctl setprop active opaque toggle"
           "Super, N, exec, ags -t 'sideright'"
           "Super, M, exec, ags run-js 'openMusicControls.value = !openMusicControls.value;'"
           "Super, Comma, exec, ags run-js 'openColorScheme.value = true; Utils.timeout(2000, () => openColorScheme.value = false);'"
@@ -294,7 +290,7 @@ in
           "Super+Alt, mouse_up, movetoworkspace, +1"
           "Super, F, fullscreen, 0"
           "Super, D, togglefloating"
-          "Super+Alt, F, fakefullscreen, 0"
+          "Super+Alt, F, fullscreenstate, 0"
           "Super, 1, workspace, 1"
           "Super, 2, workspace, 2"
           "Super, 3, workspace, 3"
@@ -399,7 +395,7 @@ in
         "maxsize 1 1, class:^(xwaylandvideobridge)$"
         "noblur, class:^(xwaylandvideobridge)$"
         "opacity 0.9 0.7, class:^(firefox)$"
-        "opacity 0.9 0.7, class:^(org\.gnome\.Nautilus)$"
+        "opacity 0.9 0.7, class:^(org.gnome.Nautilus)$"
         "opacity 0.9 0.8, class:^([Nn]eovide)$"
         "opacity 0.9 0.8, class:^([Ss]potify)$"
       ];
@@ -423,9 +419,7 @@ in
         "noanim, sideright"
         "noanim, sideleft"
       ];
-      source = [
-        "./colors.conf"
-      ];
+      source = [ "./colors.conf" ];
     };
   };
 }
