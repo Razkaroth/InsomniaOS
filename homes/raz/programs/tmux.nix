@@ -13,54 +13,60 @@ let
   #     };
   #   };
   #
-in
-{
+  tmux-super-fingers = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-super-fingers";
+    version = "unstable-2023-01-06";
+    src = pkgs.fetchFromGitHub {
+      owner = "artemave";
+      repo = "tmux_super_fingers";
+      rev = "2c12044984124e74e21a5a87d00f844083e4bdf7";
+      sha256 = "sha256-cPZCV8xk9QpU49/7H8iGhQYK6JwWjviL29eWabuqruc=";
+    };
+  };
+  usr = "raz";
+  resurrectDirPath = "/home/${usr}/.tmux/resurrect";
+in {
   programs.tmux = {
     enable = true;
-    sensibleOnTop = false;
+    shell = "${pkgs.fish}/bin/fish";
+    terminal = "kitty";
+    sensibleOnTop = true;
 
     baseIndex = 1;
     prefix = "M-s";
 
-    plugins = with pkgs.tmuxPlugins; [
+    extraConfig = ''
+      # exec-once = tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
+      set -gq allow-passthrough on
+      bind-key -n Home send Escape "OH"
+      bind-key -n End send Escape "OF"
+      # tmux-sensible
+      set -g mouse on
+      # open panes in current directory
+      bind '"' split-window -c '#{pane_current_path}'
+      bind % split-window -h -c '#{pane_current_path}'
+
+      # window rezise with arrow keys
+      bind -n M-Up resize-pane -U 5
+      bind -n M-Down resize-pane -D 5
+      bind -n M-Left resize-pane -L 5
+      bind -n M-Right resize-pane -R 5
+
+      # bind a to create a new window and A to create a new session
+      bind a new-window
+      bind A new-session
+
+    '';
+
+    plugins = with pkgs; [
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.better-mouse-mode
       {
-        plugin = sensible;
-        extraConfig = ''
-          # exec-once = tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE"
-          set -gq allow-passthrough on
-          # tmux-sensible
-          set -g mouse on
-          # open panes in current directory
-          bind '"' split-window -c '#{pane_current_path}'
-          bind % split-window -h -c '#{pane_current_path}'
-
-          # window rezise with arrow keys
-          bind -n M-Up resize-pane -U 5
-          bind -n M-Down resize-pane -D 5
-          bind -n M-Left resize-pane -L 5
-          bind -n M-Right resize-pane -R 5
-
-          # bind a to create a new window and A to create a new session
-          bind a new-window
-          bind A new-session
-
-        '';
-      }
-      vim-tmux-navigator
-      {
-        plugin = yank;
-        extraConfig = ''
-          # Copy to system clipboard
-          set -g @yank_selection 'clipboard'
-          set-window-option -g mode-keys vi
-          # key bindings
-          bind-key -T copy-mode-vi 'v' send -X begin-selection
-          bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
-          bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
-        '';
+        plugin = tmux-super-fingers;
+        extraConfig = "set -g @super-fingers-key f";
       }
       {
-        plugin = power-theme;
+        plugin = tmuxPlugins.power-theme;
         extraConfig = ''
           # Theme
           set -g @tmux_power_theme 'default'
@@ -69,26 +75,25 @@ in
           # set -g status-right '𒀪: #{continuum_status}'
         '';
       }
-      prefix-highlight
+      tmuxPlugins.prefix-highlight
       {
-        plugin = resurrect;
+        plugin = tmuxPlugins.resurrect;
         extraConfig = ''
-          resurrect_dir="$HOME/.tmux/resurrect"
-          set -g @resurrect-dir $resurrect_dir
-          set -g @resurrect-hook-post-save-all 'target=$(readlink -f $resurrect_dir/last); sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/$USER/bin/||g; s|/home/$USER/.nix-profile/bin/||g" $target | sponge $target'
           set -g @resurrect-strategy-vim 'session'
-          set -g @resurrect-strategy-nvim 'session'
-          set -g @resurrect-capture-pane-contents 'on'
+             set -g @resurrect-strategy-nvim 'session'
+
+             set -g @resurrect-capture-pane-contents 'on'
+
+             set -g @resurrect-dir ${resurrectDirPath}
+             set -g @resurrect-hook-post-save-all 'sed "s| --cmd .*-vim-pack-dir||g; s|/etc/profiles/per-user/${usr}/bin/||g; s|/home/${usr}/.nix-profile/bin/||g" ${resurrectDirPath}/last | sponge ${resurrectDirPath}/last'        '';
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '1'
         '';
       }
-      # {
-      #   plugin = continuum;
-      #   extraConfig = ''
-      #     set -g @continuum-restore 'on'
-      #     set -g @continuum-boot 'on'
-      #     set -g @continuum-save-interval '1'
-      #   '';
-      # }
     ];
 
   };

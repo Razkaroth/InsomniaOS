@@ -93,6 +93,7 @@ in {
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprctl setcursor Bibata-Modern-Classic 24"
+        "/.config/ags/scripts/color_generation/switchwall.sh --noswitch"
       ];
       general = {
         gaps_in = 4;
@@ -320,6 +321,7 @@ in {
           "Super, mouse_up, workspace, +1"
           "Super, mouse_down, workspace, -1"
           "Control+Super, mouse_up, workspace, +1"
+          "Control+Super, H, exec, hyprctl reload"
           "bind = Control+Super, mouse_down, workspace, -1"
         ];
       bindm = [
@@ -336,6 +338,7 @@ in {
         ''
           ,XF86AudioNext, exec, playerctl next || playerctl position `bc <<< "100 * $(playerctl metadata mpris:length) / 1000000 / 100"`''
         "Super+Shift, B, exec, playerctl previous"
+        ",XF86AudioPrev, exec, playerctl previous"
         "Super+Shift, P, exec, playerctl play-pause"
         ",XF86AudioPlay, exec, playerctl play-pause"
         "Super+Shift, L, exec, sleep 0.1 && systemctl suspend"

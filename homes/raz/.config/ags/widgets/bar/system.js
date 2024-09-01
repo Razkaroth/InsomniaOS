@@ -87,6 +87,13 @@ const Utilities = () =>
     className: "spacing-h-5 txt-onSurfaceVariant",
     children: [
       UtilButton({
+        name: "Hypr reload",
+        icon: "refresh",
+        onClicked: () => {
+          Utils.execAsync(["hyprctl", "reload"]).catch(print);
+        },
+      }),
+      UtilButton({
         name: "Screen snip",
         icon: "screenshot_region",
         onClicked: () => {

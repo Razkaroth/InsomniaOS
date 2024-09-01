@@ -45,7 +45,7 @@ in {
         docker
         # spotify is already handled by spicetify-nix
         typora
-        transmission-gtk
+        transmission_4-gtk
         libreoffice
 
         # Comms
