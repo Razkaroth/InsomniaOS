@@ -1,1 +1,12 @@
-{ imports = [ ./kanata.nix ]; }
+{ ... }: {
+
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      main = {
+        config = (builtins.readFile ./kanataMain.lisp);
+        extraDefCfg = "process-unmapped-keys yes";
+      };
+    };
+  };
+}
