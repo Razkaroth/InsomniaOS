@@ -18,6 +18,7 @@
     thorium.url = "github:end-4/nix-thorium";
     swww.url = "github:LGFae/swww";
 
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     nixarr.url = "github:rasmus-kirk/nixarr";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";

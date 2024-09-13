@@ -1,7 +1,7 @@
 [Added Associations]
-application/pdf=firefox.desktop
+application/pdf=zen-bin
 application/x-shellscript=code.desktop
-application/xhtml+xml=firefox.desktop;google-chrome.desktop;
+application/xhtml+xml=zen-bin;google-chrome.desktop;
 image/bmp=org.gnome.Loupe.desktop
 image/gif=org.gnome.Loupe.desktop
 image/jpeg=org.kde.kolourpaint
@@ -27,14 +27,14 @@ image/x-portable-pixmap=org.gnome.Loupe.desktop
 image/x-xbitmap=org.gnome.Loupe.desktop
 image/x-xpixmap=org.gnome.Loupe.desktop
 inode/directory=org.gnome.Nautilus.desktop
-text/html=firefox.desktop;google-chrome.desktop;
+text/html=zen-bin;google-chrome.desktop;
 video/mp4=mpv.desktop
-x-scheme-handler/http=firefox.desktop;google-chrome.desktop;
-x-scheme-handler/https=firefox.desktop;google-chrome.desktop;
+x-scheme-handler/http=zen-bin;google-chrome.desktop;
+x-scheme-handler/https=zen-bin;google-chrome.desktop;
 x-scheme-handler/magnet=transmission-gtk.desktop
 
 [Default Applications]
-application/pdf=firefox.desktop
+application/pdf=zen-bin
 application/x-shellscript=code.desktop
 application/xhtml+xml=google-chrome.desktop
 image/bmp=org.gnome.Loupe.desktop

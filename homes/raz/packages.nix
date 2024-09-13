@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   swww-pkgs = import (builtins.fetchTarball {
     url =
@@ -17,6 +17,7 @@ in {
         sway
 
         # gui
+        inputs.zen-browser.packages."${system}".specific
         anydesk
         blueberry
         bottles

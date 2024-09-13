@@ -9,7 +9,7 @@
     ./overlays.nix
     ./tailscale.nix
     # KBD
-    ./kanata.nix
+    ./kanata
     # Programs
     ./nvim.nix
     ./nixarr.nix

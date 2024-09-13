@@ -162,6 +162,7 @@
       # Gaming
       mangohud
       protontricks
+      winetricks
       protonup
       # - launchers
       lutris
