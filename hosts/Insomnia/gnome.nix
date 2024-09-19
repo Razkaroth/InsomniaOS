@@ -17,6 +17,8 @@
       lexend
       nautilus-python
       twitter-color-emoji
+      seahorse
+      gnome-keyring
     ];
 
     gnome.excludePackages = (with pkgs; [

@@ -1,7 +1,7 @@
 [Added Associations]
 application/pdf=zen-bin
 application/x-shellscript=code.desktop
-application/xhtml+xml=zen-bin;google-chrome.desktop;
+application/xhtml+xml=zen-bin;zen-bin;
 image/bmp=org.gnome.Loupe.desktop
 image/gif=org.gnome.Loupe.desktop
 image/jpeg=org.kde.kolourpaint
@@ -36,7 +36,7 @@ x-scheme-handler/magnet=transmission-gtk.desktop
 [Default Applications]
 application/pdf=zen-bin
 application/x-shellscript=code.desktop
-application/xhtml+xml=google-chrome.desktop
+application/xhtml+xml=zen-bin
 image/bmp=org.gnome.Loupe.desktop
 image/gif=org.gnome.Loupe.desktop
 image/jpeg=org.kde.kolourpaint
@@ -62,10 +62,10 @@ image/x-portable-pixmap=org.gnome.Loupe.desktop
 image/x-xbitmap=org.gnome.Loupe.desktop
 image/x-xpixmap=org.gnome.Loupe.desktop
 inode/directory=org.gnome.Nautilus.desktop
-text/html=google-chrome.desktop
+text/html=zen-bin
 video/mp4=mpv.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/http=zen-bin
+x-scheme-handler/https=zen-bin
 x-scheme-handler/magnet=transmission-gtk.desktop
 
 [Removed Associations]

@@ -32,7 +32,7 @@
 
     # It is possible for this module to run the *Arrs through a VPN, but it
     # is generally not recommended, as it can cause rate-limiting issues.
-    bazarr.enable = true;
+    bazarr.enable = false;
     lidarr.enable = true;
     prowlarr.enable = true;
     radarr.enable = true;
