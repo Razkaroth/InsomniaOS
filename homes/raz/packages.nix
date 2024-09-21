@@ -51,6 +51,7 @@ in {
 
         # Comms
         discord
+        vesktop
         signal-desktop
         # teams-for-linux
         whatsapp-for-linux

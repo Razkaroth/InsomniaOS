@@ -116,6 +116,7 @@ in {
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hyprctl setcursor Bibata-Modern-Classic 24"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "/.config/ags/scripts/color_generation/switchwall.sh --noswitch"
       ];
       general = {
