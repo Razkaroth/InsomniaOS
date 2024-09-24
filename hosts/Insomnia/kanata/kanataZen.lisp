@@ -55,7 +55,9 @@
 
 (defalias
   ;; nvim complete alt tab
-  @c A-tab
+  c A-tab
+  qt (macro ' spc)
+  dq (macro S-' spc)
   )
 
 (deflayer lyrs
@@ -63,13 +65,13 @@
      esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12   _     _
 
 ;;   tab   q     w     e     r     t     y     u     i     o     p     [     ]     \     del
-     _     _     _    ret   lrld   _    home  pgdn  pgup  end    _     _     _     _     _
+     _     _     _    ret   lrld   @c    home  pgdn  pgup  end    _     _     _     _     _
 
 ;;   caps  a     s     d     f     g     h     j     k     l     ;     '     ret         pgup
      caps @akt  @sym  bspc  del   spc    ◀     ▼     ▲     ▶     _     _     _           _
 
 ;;   lsft  z     x     c     v     b     n     m     ,     .     /     rsft        ▲     pgdn
-     _     _     _     _     _     _     _     _     _     _     _     _           _     _
+     _    S-,    =    S-.   @qt   @dq   @op   @ob    _     _     _     _           _     _
 
 ;;   lctl  lmet  lalt             spc               ralt  rmet  rctl         ◀     ▼     ▶
      _     _     _                 _                 _     _     _           _     _     _
