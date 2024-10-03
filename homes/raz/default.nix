@@ -57,9 +57,12 @@ in { pkgs, impurity, ... }: {
         "file://${homeDirectory}/Pictures"
         "file://${homeDirectory}/Music"
         "file://${homeDirectory}/Videos"
-        "file://${homeDirectory}/.config"
-        "file://${homeDirectory}/.config/ags"
+        "file://mnt/Windows"
         "file://${homeDirectory}/jale"
+        "file://${homeDirectory}/jale/nordic-rune"
+        "file://${homeDirectory}/jale/poplab"
+        "file://${homeDirectory}/jale/poplab/pop-next"
+        "file://${homeDirectory}/jale/invierno-eterno"
       ];
     };
   };

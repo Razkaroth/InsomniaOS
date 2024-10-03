@@ -105,6 +105,8 @@ in {
         speedtest-cli
 
         #forensics
+        # gnome-boxes # TODO: Needs KVM
+        
 
         #DB
         sqlite
