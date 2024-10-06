@@ -4,36 +4,43 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "md_mod"
+    "raid0"
+    "btrfs"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+    "sdhci_pci"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/ce4e4013-4d22-449a-ab2a-f9b808f8ebb5";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/7bc575e5-2ea9-44d7-9c59-687be0dcba9d";
+    fsType = "btrfs";
+    options = [ "subvol=@" "compress=zstd" ];
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/9187-9DC1";
-      fsType = "vfat";
-    };
-  fileSystems."/mnt/Windows" =
-    {
-      device = "/dev/disk/by-uuid/485AA7FA5AA7E344";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uid=1000" "gid=100" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/7bc575e5-2ea9-44d7-9c59-687be0dcba9d";
+    fsType = "btrfs";
+    options = [ "subvol=@home" "compress=zstd" ];
+  };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/0d6d4e5d-89a2-47e5-97e0-7cf756c053b0"; }];
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/CCAB-6B8D";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -44,5 +51,14 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  boot.swraid.enable = true;
+  boot.swraid.mdadmConf = ''
+    ARRAY /dev/md0 metadata=1.2 name=nixos:0 devices=/dev/nvme0n1p2,/dev/nvme1n1p1
+  '';
+
+  # Enable periodic scrubbing of Btrfs filesystems
+  services.btrfs.autoScrub.enable = true;
+
 }
